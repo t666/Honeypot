@@ -795,8 +795,8 @@
                 // var data = this.params;
 				// TODO temp  为什么要用 this.params，没搞明白
 				var data = {};
-                data['goods_id'] = [this.goods.id];
-                data['spec'] = JSON.stringify(spec);
+                data['goods_id'] = this.goods.id;
+                // data['spec'] = JSON.stringify(spec);
                 data['stock'] = this.buy_number;
                 uni.request({
                     // url: app.globalData.get_request_url('save', 'cart'),

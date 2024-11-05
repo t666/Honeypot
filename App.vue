@@ -697,6 +697,7 @@
 										console.log("appminiuserauth data = " + JSON.stringify(data, null, 2));
                                         var client_type = this.application_client_type();
                                         if ((data.is_user_exist || 0) == 1 || client_type == 'weixin') {
+										// if (data.is_user_exist  == 1 ) {
 											console.log("1111111111");
                                             uni.setStorageSync(self.data.cache_user_info_key, data);
                                             if (typeof object === 'object' && (method || null) != null) {

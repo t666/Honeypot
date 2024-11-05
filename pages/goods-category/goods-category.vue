@@ -1132,7 +1132,8 @@
             // 购物车更新
             cart_update(cart_id, goods_id, buy_number) {
                 uni.request({
-                    url: app.globalData.get_request_url('stock', 'cart'),
+                    // url: app.globalData.get_request_url('stock', 'cart'),
+					url: app.globalData.get_request_url('c/saveCart'),
                     method: 'POST',
                     data: {
                         id: cart_id,

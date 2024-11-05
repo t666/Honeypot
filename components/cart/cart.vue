@@ -703,7 +703,7 @@
                 });
                 uni.request({
                     // url: app.globalData.get_request_url('stock', 'cart'),
-					url: app.globalData.get_request_url('stock', 'cart'),
+					url: app.globalData.get_request_url('c/saveCart'),
                     method: 'POST',
                     data: {
                         id: temp_data_list[index]['id'],

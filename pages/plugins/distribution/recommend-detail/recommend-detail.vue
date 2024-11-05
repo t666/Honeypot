@@ -327,7 +327,8 @@
                 data['spec'] = item.spec || '';
                 data['stock'] = number;
                 uni.request({
-                    url: app.globalData.get_request_url('stock', 'goods'),
+                    // url: app.globalData.get_request_url('stock', 'goods'),
+					url: app.globalData.get_request_url('c/saveCart'),
                     method: 'POST',
                     data: data,
                     dataType: 'json',
