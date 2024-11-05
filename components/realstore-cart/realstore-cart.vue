@@ -611,7 +611,8 @@
             // 购物车添加
             cart_save(goods_id, stock, spec = '') {
                 uni.request({
-                    url: app.globalData.get_request_url('save', 'cart'),
+                    // url: app.globalData.get_request_url('save', 'cart'),
+					url: app.globalData.get_request_url('c/saveCart'),
                     method: 'POST',
                     data: {
                         goods_id: goods_id,
@@ -676,7 +677,8 @@
             // 购物车删除
             cart_delete(cart_id, goods_id = null) {
                 uni.request({
-                    url: app.globalData.get_request_url('delete', 'cart'),
+                    // url: app.globalData.get_request_url('delete', 'cart'),
+					url: app.globalData.get_request_url('c/deleteCart'),
                     method: 'POST',
                     data: {
                         id: cart_id,

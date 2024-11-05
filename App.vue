@@ -40,6 +40,7 @@
                 // 蓝色 blue      #1677ff
                 // 棕色 brown     #8B4513
                 // 紫色 purple    #623cec
+				// 天青色 skyBlue #87CEEB
                 default_theme: 'orange',
 
                 // 多语言列表
@@ -682,7 +683,8 @@
                     success: (res) => {
                         if (res.code) {
                             uni.request({
-                                url: self.get_request_url('/u/authLogin'),
+								// url: self.get_request_url('appminiuserauth', 'user'),
+                                url: self.get_request_url('u/authLogin'),
                                 method: 'POST',
                                 data: {
                                     code: res.code,
@@ -692,6 +694,7 @@
                                     uni.hideLoading();
                                     if (res.data.code == 0) {
                                         var data = res.data.data;
+										console.log("appminiuserauth data = " + JSON.stringify(data, null, 2));
                                         var client_type = this.application_client_type();
                                         if ((data.is_user_exist || 0) == 1 || client_type == 'weixin') {
 											console.log("1111111111");
@@ -2350,6 +2353,7 @@
                     orange: '#fe6f04', // 橙色
                     brown: '#8B4513', // 棕色
                     purple: '#623cec', // 紫色
+					skyBlue: '#87CEEB', // 天青色
 
                     // 浅主色
                     red_light: '#ffdbe2', // 红色
@@ -2360,6 +2364,7 @@
                     orange_light: '#fde4d1', // 橙色
                     brown_light: '#eadcd2', // 棕色
                     purple_light: '#d6cbfb', // 紫色
+					skyBlue_light: '#9FD8EF', // 天青色
                 };
                 // 当前主题
                 if ((theme || null) == null) {
