@@ -18,6 +18,7 @@
                         </view>
 
                         <!-- 绑定手机 -->
+						
                         <view v-if="current_opt_form == 'bind_verify'" class="form-content">
                             <form @submit="form_submit_bind_mobile">
                                 <view class="tc">
@@ -56,6 +57,7 @@
                                 </view>
                             </form>
                         </view>
+						
 
                         <!-- 存在用户信息 -->
                         <block v-if="user != null">
@@ -66,10 +68,11 @@
                                     <view v-if="(user.user_name_view || null) != null" class="cr-base">{{ user.user_name_view }}</view>
                                 </view>
                                 <block v-if="current_opt_form == 'bind'">
-                                    <view class="margin-top-xxxl padding-top-xxxl">
+									手机验证码、获取手机号一键登录 按钮
+                                    <!-- <view class="margin-top-xxxl padding-top-xxxl">
                                         <button class="bg-main-pair br-main-pair cr-white round text-size" type="warn" hover-class="none" data-value="bind_verify" @tap="opt_form_event">{{ $t('login.login.31r6p2') }}</button>
                                         <button v-if="common_user_onekey_bind_mobile_list.length > 0 && common_user_onekey_bind_mobile_list.indexOf(client_value) != -1" class="margin-top-xxl bg-main br-main cr-white round text-size" type="default" hover-class="none" open-type="getPhoneNumber" @getphonenumber="confirm_phone_number_event">{{ $t('login.login.p3kxy2') }}</button>
-                                    </view>
+                                    </view> -->
                                     <!-- 当前还没有账号的情况下才可以操作登录和注册绑定 -->
                                     <view v-if="(user || null) == null || (user.id || null) == null" class="margin-top-xxxl padding-top-xxxl padding-horizontal-main padding-bottom-main">
                                         <!-- 登录 -->
@@ -96,8 +99,9 @@
                         </view>
 
                         <!-- 默认站点logo -->
+						<!--
                         <image v-if="(home_site_logo_square || null) != null && current_opt_form != 'bind' && current_opt_form != 'bind_verify' && current_opt_form != 'bind_email' && current_opt_form != 'bind_platform' && current_opt_form != 'success'" class="icon circle auto dis-block br" :src="home_site_logo_square" mode="widthFix"></image>
-
+						-->
                         <!-- 非登录成功则需要展示的数据 -->
                         <block v-if="current_opt_form != 'success'">
                             <!-- 错误提示信息 -->
@@ -126,35 +130,39 @@
                                         <!-- 登录方式选择 -->
                                         <view v-if="(home_user_login_type || null) != null && home_user_login_type.length > 0" class="opt-type-list margin-vertical-xxxl">
                                             <text v-if="home_user_login_type.indexOf('username') != -1" class="padding-vertical-sm" :class="current_opt_type === 'login_username' ? 'cr-main nav-active-line' : ''" data-value="login_username" @tap="opt_type_event">{{ $t('login.login.n2pv70') }}</text>
-                                            <text v-if="home_user_login_type.indexOf('sms') != -1" class="padding-vertical-sm" :class="current_opt_type === 'login_sms' ? 'cr-main nav-active-line' : ''" data-value="login_sms" @tap="opt_type_event">{{ $t('login.login.1p7843') }}</text>
+                                           <!-- 
+											<text v-if="home_user_login_type.indexOf('sms') != -1" class="padding-vertical-sm" :class="current_opt_type === 'login_sms' ? 'cr-main nav-active-line' : ''" data-value="login_sms" @tap="opt_type_event">{{ $t('login.login.1p7843') }}</text>
                                             <text v-if="home_user_login_type.indexOf('email') != -1" class="padding-vertical-sm" :class="current_opt_type === 'login_email' ? 'cr-main nav-active-line' : ''" data-value="login_email" @tap="opt_type_event">{{ $t('login.login.p54kf1') }}</text>
+											 -->
                                         </view>
                                         <view v-else class="tc cr-grey padding-vertical-main">{{ $t('login.login.3i05ly') }}</view>
                                         <!-- 账号密码 -->
                                         <block v-if="current_opt_type == 'login_username'">
                                             <input type="text" :placeholder="$t('login.login.qe8a37')" maxlength="60" name="accounts" key="login_username_1" class="form-item margin-vertical-xl wh-auto" />
                                             <input type="text" :placeholder="$t('login.login.08fchn')" minlength="6" maxlength="18" name="pwd" password="true" key="login_username_2" class="form-item margin-vertical-xl wh-auto" />
-                                            <view v-if="home_user_login_img_verify_state == 1" class="verify pr margin-vertical-xl">
+                                            <!-- 验证码
+											<view v-if="home_user_login_img_verify_state == 1" class="verify pr margin-vertical-xl">
                                                 <input type="text" :placeholder="$t('login.login.t3951j')" name="verify" maxlength="4" :value="form_input_image_verify_value" key="login_username_3" @input="form_input_image_verify_event" />
                                                 <image v-if="(verify_image_url || null) != null" :src="verify_image_url" class="verify-image pa" mode="aspectFit" data-type="user_login" @tap="image_verify_event"></image>
-                                            </view>
+                                            </view> -->
+											
                                         </block>
                                         <!-- 手机 -->
-                                        <block v-if="current_opt_type == 'login_sms'">
+                                        <!-- <block v-if="current_opt_type == 'login_sms'">
                                             <input type="number" :placeholder="$t('login.login.28k91h')" maxlength="11" name="accounts" @input="form_input_mobile_event" key="login_sms_1" class="form-item margin-vertical-xl wh-auto" />
                                             <view class="code pr margin-vertical-xl">
                                                 <input type="number" :placeholder="$t('login.login.t3951j')" name="verify" maxlength="4" key="login_sms_2" />
                                                 <button :class="'verify-submit pa round br text-size-sm cr-grey-9 ' + (verify_disabled ? 'sub-disabled' : '')" type="default" hover-class="none" size="mini" :loading="verify_loading" :disabled="verify_disabled" @tap="verify_send_event">{{ verify_submit_text }}</button>
                                             </view>
-                                        </block>
+                                        </block> -->
                                         <!-- 邮箱 -->
-                                        <block v-if="current_opt_type == 'login_email'">
+                                        <!-- <block v-if="current_opt_type == 'login_email'">
                                             <input type="text" :placeholder="$t('login.login.db1rf4')" maxlength="60" name="accounts" @input="form_input_email_event" key="login_email_1" class="form-item margin-vertical-xl wh-auto" />
                                             <view class="code pr margin-vertical-xl">
                                                 <input type="number" :placeholder="$t('login.login.t3951j')" name="verify" maxlength="4" key="login_email_1" />
                                                 <button :class="'verify-submit pa round br text-size-sm cr-grey-9 ' + (verify_disabled ? 'sub-disabled' : '')" type="default" hover-class="none" size="mini" :loading="verify_loading" :disabled="verify_disabled" @tap="verify_send_event">{{ verify_submit_text }}</button>
                                             </view>
-                                        </block>
+                                        </block> -->
                                         <!-- 协议 -->
                                         <view class="margin-top-xl cr-grey flex-row flex-wrap align-c">
                                             <view class="dis-inline-block va-m" @tap="agreement_change">
@@ -193,37 +201,41 @@
                                         <!-- 注册方式选择 -->
                                         <view v-if="(home_user_reg_type || null) != null && home_user_reg_type.length > 0" class="opt-type-list margin-vertical-xxxl">
                                             <text v-if="home_user_reg_type.indexOf('username') != -1" class="padding-vertical-sm" :class="current_opt_type === 'reg_username' ? 'cr-main nav-active-line' : ''" data-value="reg_username" @tap="opt_type_event">{{ $t('login.login.n2pv70') }}</text>
-                                            <text v-if="home_user_reg_type.indexOf('sms') != -1" class="padding-vertical-sm" :class="current_opt_type === 'reg_sms' ? 'cr-main nav-active-line' : ''" data-value="reg_sms" @tap="opt_type_event">{{ $t('login.login.1p7843') }}</text>
+                                            <!-- 
+											<text v-if="home_user_reg_type.indexOf('sms') != -1" class="padding-vertical-sm" :class="current_opt_type === 'reg_sms' ? 'cr-main nav-active-line' : ''" data-value="reg_sms" @tap="opt_type_event">{{ $t('login.login.1p7843') }}</text>
                                             <text v-if="home_user_reg_type.indexOf('email') != -1" class="padding-vertical-sm" :class="current_opt_type === 'reg_email' ? 'cr-main nav-active-line' : ''" data-value="reg_email" @tap="opt_type_event">{{ $t('login.login.p54kf1') }}</text>
+											 -->
                                         </view>
                                         <view v-else class="tc cr-grey padding-vertical-main">{{ $t('login.login.t59dho') }}</view>
                                         <!-- 账号密码 -->
                                         <block v-if="current_opt_type == 'reg_username'">
                                             <input type="text" :placeholder="$t('login.login.6yfr9g')" maxlength="60" name="accounts" key="reg_username_1" class="form-item margin-vertical-xl wh-auto" />
                                             <input type="text" :placeholder="$t('login.login.08fchn')" minlength="6" maxlength="18" name="pwd" password="true" key="reg_username_2" class="form-item margin-vertical-xl wh-auto" />
-                                            <view v-if="home_user_register_img_verify_state == 1" class="verify pr margin-vertical-xl">
+                                            <!-- 验证码
+											<view v-if="home_user_register_img_verify_state == 1" class="verify pr margin-vertical-xl">
                                                 <input type="text" :placeholder="$t('login.login.t3951j')" name="verify" maxlength="4" :value="form_input_image_verify_value" key="reg_username_3" @input="form_input_image_verify_event" />
                                                 <image v-if="(verify_image_url || null) != null" :src="verify_image_url" class="verify-image pa" mode="aspectFit" data-type="user_reg" @tap="image_verify_event"></image>
-                                            </view>
+                                            </view> -->
+											
                                         </block>
                                         <!-- 手机 -->
-                                        <block v-if="current_opt_type == 'reg_sms'">
+                                        <!-- <block v-if="current_opt_type == 'reg_sms'">
                                             <input type="number" :placeholder="$t('login.login.28k91h')" maxlength="11" name="accounts" key="reg_sms_1" @input="form_input_mobile_event" class="form-item margin-vertical-xl wh-auto" />
                                             <view class="code pr margin-vertical-xl">
                                                 <input type="number" :placeholder="$t('login.login.t3951j')" name="verify" maxlength="4" key="reg_sms_2" />
                                                 <button :class="'verify-submit pa round br text-size-sm cr-grey-9 ' + (verify_disabled ? 'sub-disabled' : '')" type="default" hover-class="none" size="mini" :loading="verify_loading" :disabled="verify_disabled" @tap="verify_send_event">{{ verify_submit_text }}</button>
                                             </view>
                                             <input type="text" :placeholder="$t('login.login.08fchn')" minlength="6" maxlength="18" name="pwd" password="true" key="reg_sms_3" class="form-item margin-vertical-xl wh-auto" />
-                                        </block>
+                                        </block> -->
                                         <!-- 邮箱 -->
-                                        <block v-if="current_opt_type == 'reg_email'">
+                                        <!-- <block v-if="current_opt_type == 'reg_email'">
                                             <input type="text" :placeholder="$t('login.login.db1rf4')" maxlength="60" name="accounts" key="reg_email_1" @input="form_input_email_event" class="form-item margin-vertical-xl wh-auto" />
                                             <view class="code pr margin-vertical-xl">
                                                 <input type="number" :placeholder="$t('login.login.t3951j')" name="verify" maxlength="4" key="reg_email_2" />
                                                 <button :class="'verify-submit pa round br text-size-sm cr-grey-9 ' + (verify_disabled ? 'sub-disabled' : '')" type="default" hover-class="none" size="mini" :loading="verify_loading" :disabled="verify_disabled" @tap="verify_send_event">{{ verify_submit_text }}</button>
                                             </view>
                                             <input type="text" :placeholder="$t('login.login.08fchn')" minlength="6" maxlength="18" name="pwd" password="true" key="reg_email_3" class="form-item margin-vertical-xl wh-auto" />
-                                        </block>
+                                        </block> -->
                                         <!-- 协议 -->
                                         <view class="margin-top-xxxl cr-grey">
                                             <view class="dis-inline-block va-m" @tap="agreement_change">
@@ -990,9 +1002,11 @@
                 // 数据验证
                 var validation = [
                     { fields: 'mobile', msg: this.$t('login.login.4c5n8o') },
-                    { fields: 'verify', msg: this.$t('login.login.01xmab') },
+                    // { fields: 'verify', msg: this.$t('login.login.01xmab') },
                 ];
-                this.formBind(e, validation, app.globalData.get_request_url('appmobilebind', 'user'));
+                // this.formBind(e, validation, app.globalData.get_request_url('appmobilebind', 'user'));
+				this.formBind(e, validation, app.globalData.get_request_url('u/bindPhone'));
+				
             },
             // 绑定手机表单提交
             form_submit_bind_email(e) {
@@ -1119,9 +1133,10 @@
                     validation.push({ fields: 'accounts', msg: this.$t('login.login.n7vh75') });
                     validation.push({ fields: 'pwd', msg: this.$t('login.login.277w03') });
                 }
-                if (this.current_opt_type == 'login_sms' || this.current_opt_type == 'login_email' || (this.current_opt_type == 'login_username' && this.home_user_login_img_verify_state == 1)) {
-                    validation.push({ fields: 'verify', msg: this.$t('login.login.cesl5d') });
-                }
+				//验证码验证
+                // if (this.current_opt_type == 'login_sms' || this.current_opt_type == 'login_email' || (this.current_opt_type == 'login_username' && this.home_user_login_img_verify_state == 1)) {
+                //     validation.push({ fields: 'verify', msg: this.$t('login.login.cesl5d') });
+                // }
                 if (app.globalData.fields_check(e.detail.value, validation)) {
                     // 登录方式
                     e.detail.value['type'] = this.current_opt_type.replace('login_', '');
@@ -1150,7 +1165,8 @@
                         form_submit_loading: true,
                     });
                     uni.request({
-                        url: app.globalData.get_request_url('login', 'user'),
+                        // url: app.globalData.get_request_url('login', 'user'),
+						url: app.globalData.get_request_url('u/login'),
                         method: 'POST',
                         data: e.detail.value,
                         dataType: 'json',
@@ -1187,9 +1203,10 @@
                     validation.push({ fields: 'accounts', msg: this.$t('login.login.n7vh75') });
                     validation.push({ fields: 'pwd', msg: this.$t('login.login.277w03') });
                 }
-                if (this.current_opt_type == 'reg_sms' || this.current_opt_type == 'reg_email' || (this.current_opt_type == 'reg_username' && this.home_user_register_img_verify_state == 1)) {
-                    validation.push({ fields: 'verify', msg: this.$t('login.login.cesl5d') });
-                }
+				//验证码验证
+                // if (this.current_opt_type == 'reg_sms' || this.current_opt_type == 'reg_email' || (this.current_opt_type == 'reg_username' && this.home_user_register_img_verify_state == 1)) {
+                //     validation.push({ fields: 'verify', msg: this.$t('login.login.cesl5d') });
+                // }
                 if (app.globalData.fields_check(e.detail.value, validation)) {
                     // 注册方式
                     e.detail.value['type'] = this.current_opt_type.replace('reg_', '');
@@ -1219,7 +1236,8 @@
                         form_submit_loading: true,
                     });
                     uni.request({
-                        url: app.globalData.get_request_url('reg', 'user'),
+                        // url: app.globalData.get_request_url('reg', 'user'),
+						url: app.globalData.get_request_url('u/register'),
                         method: 'POST',
                         data: e.detail.value,
                         dataType: 'json',
@@ -1242,7 +1260,7 @@
                 // 数据验证
                 var validation = [
                     { fields: 'accounts', msg: this.$t('login.login.h0515x') },
-                    { fields: 'verify', msg: this.$t('login.login.cesl5d') },
+                    // { fields: 'verify', msg: this.$t('login.login.cesl5d') },//验证码验证
                     { fields: 'pwd', msg: this.$t('login.login.wysg7k') },
                 ];
                 if (app.globalData.fields_check(e.detail.value, validation)) {
@@ -1382,7 +1400,7 @@
                     app.globalData.showToast(this.$t('login.login.x0nxxf'));
                     return false;
                 }
-
+				console.log("url = "+ url);
                 // 打开 webview
                 app.globalData.open_web_view(url);
             },

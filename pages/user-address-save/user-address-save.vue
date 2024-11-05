@@ -37,10 +37,10 @@
                                                 </view>
                                                 <component-region-picker :propProvinceId="province_id" :propCityId="city_id" :propCountyId="county_id" :propShow="region_picker_show" @onclose="close_event" @call-back="region_event"></component-region-picker>
                                             </view>
-                                            <view class="code-search oh pr">
+                                            <!-- <view class="code-search oh pr">
                                                 <input type="text" :value="address_data.address_last_code || ''" maxlength="30" placeholder-class="cr-grey-9" class="cr-base dis-inline-block bg-base text-size-xs padding-left-sm va-m" :placeholder="$t('user-address-save.user-address-save.he685s')" @input="region_code_value_event" />
                                                 <button type="default" size="mini" class="bg-black br-black cr-white text-size-xs pa" @tap="region_code_event" :disabled="form_submit_disabled_status">{{$t('user-address-save.user-address-save.mb7cjx')}}</button>
-                                            </view>
+                                            </view> -->
                                         </view>
                                     </block>
                                     <block v-else>
@@ -284,7 +284,7 @@
             get_data() {
                 uni.request({
                     // url: app.globalData.get_request_url('detail', 'useraddress'),
-					url: app.globalData.get_request_url('/u/addr/get'),
+					url: app.globalData.get_request_url('/u/addr/getAddr'),
                     method: 'GET',
                     data: {...this.params, ...{is_lang: 0}},
                     dataType: 'json',
@@ -560,7 +560,7 @@
                 // 表单数据
                 var form_data = e.detail.value;
                 // 加入页面请求参数
-                form_data['params'] = this.params;
+                // form_data['params'] = this.params;
 
                 // 数据校验
                 var validation = [

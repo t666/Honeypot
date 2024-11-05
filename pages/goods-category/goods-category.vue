@@ -578,7 +578,7 @@
                 }
                 uni.request({
                     // url: app.globalData.get_request_url('category', 'goods'),
-					url: app.globalData.get_request_url('/p/getCategory'),
+					url: app.globalData.get_request_url('p/getCategory'),
                     method: 'GET',
                     data: {},
                     dataType: 'json',
@@ -586,7 +586,6 @@
                         uni.stopPullDownRefresh();
                         if (res.data.code == 0) {
                             var data = res.data.data;
-							console.log("getCategory = " + JSON.stringify(data, null, 2));
                             var active_index = this.nav_active_index;
                             var temp_category = data.category || [];
                             // 全部分类子级数量
@@ -710,7 +709,8 @@
                 // 分类id
                 if ((this.data_content || null) != null) {
                     // 主分类id
-                    post_data['category_id'] = this.data_content['id'];
+                    // post_data['category_id'] = this.data_content['id'];
+					post_data['category_id'] = 0;//模拟一级分类，所以 id = 0
                     // 是否选中了二级分类
                     if (this.nav_active_item_two_index != -1) {
                         post_data['category_id'] = this.data_content['items'][this.nav_active_item_two_index]['id'];
@@ -725,11 +725,11 @@
                 var temp_search_nav_sort = this.search_nav_sort_list;
                 post_data['order_by_type'] = temp_search_nav_sort[temp_index]['sort'] == 'desc' ? 'asc' : 'desc';
                 post_data['order_by_field'] = temp_search_nav_sort[temp_index]['field'];
-
+				
                 // 获取数据
                 uni.request({
                     // url: app.globalData.get_request_url('datalist', 'search'),
-					url: app.globalData.get_request_url('/p/getProductPage'),
+					url: app.globalData.get_request_url('p/getProductPage'),
                     method: 'GET',
                     data: post_data,
                     dataType: 'json',
@@ -739,6 +739,7 @@
                             if (data.data.length > 0) {
                                 if (this.data_page <= 1) {
                                     var temp_data_list = data.data;
+									// console.log("getProductPage temp_data_list = " + JSON.stringify(temp_data_list, null, 2));
                                 } else {
                                     var temp_data_list = this.data_list || [];
                                     var temp_data = data.data;
@@ -1103,7 +1104,8 @@
             // 购物车添加
             cart_save(goods_id, buy_number, spec = '') {
                 uni.request({
-                    url: app.globalData.get_request_url('save', 'cart'),
+                    // url: app.globalData.get_request_url('save', 'cart'),
+					url: app.globalData.get_request_url('c/saveCart'),
                     method: 'POST',
                     data: {
                         goods_id: goods_id,
@@ -1159,7 +1161,8 @@
             // 购物车删除
             cart_delete(cart_id) {
                 uni.request({
-                    url: app.globalData.get_request_url('delete', 'cart'),
+                    // url: app.globalData.get_request_url('delete', 'cart'),
+					url: app.globalData.get_request_url('c/deleteCart'),
                     method: 'POST',
                     data: {
                         id: cart_id,
@@ -1189,7 +1192,8 @@
                         // url: app.globalData.get_request_url('index', 'cart'),
 						url: app.globalData.get_request_url('/c/getCartInfo'),
                         method: 'GET',
-                        data: {userId: this.userId == undefined ? 0 : this.userId},
+                        // data: {userId: this.userId == undefined ? 0 : this.userId},
+						data: {},
                         dataType: 'json',
                         success: (res) => {
                             if (res.data.code == 0) {
@@ -1198,6 +1202,7 @@
                                 this.setData({
                                     cart: res.data.data,
                                 });
+								
                                 this.cart_data_list_handle();
                                 // 导航购物车处理
                                 if (data.buy_number <= 0) {
@@ -1218,17 +1223,15 @@
             // 购物车更新列表数据处理
             cart_data_list_handle() {
                 var temp_cart = this.cart || null;
-				console.log("temp_cart = " + JSON.stringify(temp_cart, null, 2));
                 if (temp_cart != null) {
+					// console.log("cart = " + JSON.stringify(temp_cart, null, 2));
                     var temp_data_list = this.data_list;
-					console.log("temp_data_list = " + JSON.stringify(temp_data_list, null, 2));
+					
                     if (temp_data_list.length > 0) {
                         for (var i in temp_data_list) {
                             temp_data_list[i]['buy_number'] = 0;
-							console.log("i = " + i);
                             if (temp_cart.data.length > 0) {
                                 for (var k in temp_cart.data) {
-									console.log("k = " + k);
                                     if (temp_cart.data[k]['goods_id'] == temp_data_list[i]['id']) {
                                         temp_data_list[i]['buy_number'] += parseInt(temp_cart.data[k]['stock']);
                                     }
@@ -1236,6 +1239,7 @@
                             }
                         }
                     }
+					// console.log("cart_data_list_handle temp_data_list = " + JSON.stringify(temp_data_list, null, 2));
                     this.setData({
                         data_list: temp_data_list,
                     });
@@ -1287,6 +1291,7 @@
                 // 获取购物车数据
                 var ids = [];
                 if ((this.cart || null) != null) {
+					console.log("cart = " + JSON.stringify(this.cart, null, 2));
                     var temp_data = this.cart.data || [];
                     for (var i in temp_data) {
                         if (temp_data[i]['is_error'] == 0) {

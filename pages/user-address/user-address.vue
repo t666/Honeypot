@@ -37,7 +37,7 @@
                 <block v-if="common_user_address_platform_import_list.length > 0 && common_user_address_platform_import_list.indexOf(client_value) != -1">
                     <view class="submit-list flex-row jc-sb align-c">
                         <button class="cr-white round text-size" type="default" hover-class="none" @tap="address_add_event" :style="btn_bg_color">{{$t('user-address.user-address.3i4x2r')}}</button>
-                        <button class="br-main cr-main bg-white round text-size" type="default" hover-class="none" @tap="choose_system_address_event">{{$t('user-address.user-address.1rwt3l')}}</button>
+<!--                        <button class="br-main cr-main bg-white round text-size" type="default" hover-class="none" @tap="choose_system_address_event">{{$t('user-address.user-address.1rwt3l')}}</button> -->
                     </view>
                 </block>
                 <block v-else>
@@ -145,8 +145,10 @@
 
                 // 获取数据
                 uni.request({
-                    url: app.globalData.get_request_url('index', 'useraddress'),
-                    method: 'POST',
+                    // url: app.globalData.get_request_url('index', 'useraddress'),
+					url: app.globalData.get_request_url('u/addr/getAddrList'),
+					
+                    method: 'GET',
                     data: this.params,
                     dataType: 'json',
                     success: (res) => {
