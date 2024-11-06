@@ -1,7 +1,7 @@
 {
-    "name" : "ShopXO",
+    "name" : "shidafeng",
     "appid" : "__UNI__50E3C11",
-    "description" : "ShopXO开源商城、MIT协议、可商用、可二次开发、满足99%电商运营需求",
+    "description" : "时达丰商品小程序",
     "versionName" : "1.0.0",
     "versionCode" : 100,
     "transformPx" : false,
@@ -250,7 +250,7 @@
             "mode" : "history",
             "base" : "./"
         },
-        "title" : "ShopXO",
+        "title" : "Shop",
         "template" : "template.h5.html"
     },
     "vueVersion" : "2",

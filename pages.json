@@ -1618,7 +1618,7 @@
         }
     },
     "globalStyle": {
-        "navigationBarTitleText": "ShopXO",
+        "navigationBarTitleText": "Shop",
         "navigationBarTextStyle": "black",
         "navigationBarBackgroundColor": "#ffffff",
         "backgroundColor": "#f5f5f5",
