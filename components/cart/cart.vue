@@ -848,7 +848,8 @@
             // 购物车删除
             cart_delete(id, type) {
                 uni.request({
-                    url: app.globalData.get_request_url('delete', 'cart'),
+                    // url: app.globalData.get_request_url('delete', 'cart'),
+					url: app.globalData.get_request_url('c/deleteCart'),
                     method: 'POST',
                     data: {
                         id: id,
@@ -1094,7 +1095,7 @@
                 // 获取数据
                 uni.request({
                     // url: app.globalData.get_request_url('datalist', 'search'),
-					url: app.globalData.get_request_url('/p/getProductPage'),
+					url: app.globalData.get_request_url('p/getProductPage'),
                     method: 'GET',
                     data: {
                         page: this.goods_page,
