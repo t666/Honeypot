@@ -229,6 +229,7 @@
 
             // 地址选择存储并返回
             address_choose_cache_save_back(address) {
+				debugger
                 uni.setStorage({
                     key: app.globalData.data.cache_buy_user_address_select_key,
                     data: address,

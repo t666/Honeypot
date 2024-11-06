@@ -95,7 +95,7 @@
                                                 <!-- 操作导航 -->
                                                 <view class="goods-list-top-nav bg-white">
                                                     <!-- 排序 -->
-                                                    <view class="nav-sort-content oh">
+                                                    <view class="nav-sort-content oh" v-if="0">
                                                         <block v-for="(item, index) in search_nav_sort_list" :key="index">
                                                             <view class="sort-item tc fl cp" :data-index="index" @tap="nav_sort_event">
                                                                 <text class="cr-base va-m text-size-sm">{{ item.name }}</text>

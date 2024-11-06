@@ -443,7 +443,7 @@
                 this.setData({
                     params: JSON.parse(base64.decode(decodeURIComponent(params.data))),
                     plugins_points_status: app.globalData.get_config('plugins_base.points.data.is_default_use_points', null) == 1,
-                    pay_url: app.globalData.get_request_url('pay', 'order'),
+                    pay_url: app.globalData.get_request_url('o/payOrder'),
                     qrcode_url: app.globalData.get_request_url('paycheck', 'order'),
                 });
 

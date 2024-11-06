@@ -211,11 +211,12 @@
     padding: 20rpx 0;
 }
 .right-content-actual {
+	padding-top: 12rpx;
     padding-bottom: 105rpx;
 }
 .goods-right-content {
     width: calc(100% - 200rpx);
-    height: calc(100% - 182rpx);
+    height: calc(100% - 108rpx);
     top: 0;
     right: 0;
 }
