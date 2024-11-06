@@ -205,9 +205,15 @@
                 // 表单数据
                 var form_data = e.detail.value;
                 // 头像
-                form_data['avatar'] = this.user_data.avatar || '';
+                // form_data['avatar'] = this.user_data.avatar || '';
+				form_data['avatar'] = this.user_data.avatar.name || '';
                 // 生日
-                form_data['birthday'] = this.user_data.birthday || '';
+                // form_data['birthday'] = this.user_data.birthday || '';
+				form_data['birthday_text'] = this.user_data.birthday || '';
+				if (form_data.hasOwnProperty('birthday')) {
+				    delete form_data['birthday'];
+				}
+				
                 // 性别
                 form_data['gender'] = this.user_data.gender || 0;
 

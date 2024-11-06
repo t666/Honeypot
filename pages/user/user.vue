@@ -373,7 +373,7 @@
             get_data() {
                 uni.request({
                     // url: app.globalData.get_request_url('center', 'user'),
-					url: app.globalData.get_request_url('u//userCenter'),
+					url: app.globalData.get_request_url('u/userCenter'),
                     method: 'GET',
                     data: {},
                     dataType: 'json',

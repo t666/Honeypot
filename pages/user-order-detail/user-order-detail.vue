@@ -190,8 +190,9 @@
                     data_list_loding_status: 1,
                 });
                 uni.request({
-                    url: app.globalData.get_request_url('detail', 'order'),
-                    method: 'POST',
+                    // url: app.globalData.get_request_url('detail', 'order'),
+					url: app.globalData.get_request_url('o/getOrderInfo'),
+                    method: 'GET',
                     data: {
                         id: this.params.id,
                     },
