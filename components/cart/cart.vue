@@ -986,7 +986,9 @@
                 var data = this.buy_data_params();
                 if (data !== false) {
                     uni.request({
-                        url: app.globalData.get_request_url('index', 'buy'),
+                        // url: app.globalData.get_request_url('index', 'buy'),
+						// TODO temp  预览下单页面
+						url: app.globalData.get_request_url('c/buyCart'),
                         method: 'POST',
                         data: data,
                         dataType: 'json',

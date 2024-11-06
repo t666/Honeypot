@@ -117,8 +117,9 @@
             // 获取数据
             get_data() {
                 uni.request({
-                    url: app.globalData.get_request_url('index', 'personal'),
-                    method: 'POST',
+                    // url: app.globalData.get_request_url('index', 'personal'),
+					url: app.globalData.get_request_url('u/getPersonal'),
+                    method: 'GET',
                     data: {lang_can_key: 'gender_list'},
                     dataType: 'json',
                     success: (res) => {
@@ -178,7 +179,9 @@
             upload_handle(image) {
                 var self = this;
                 uni.uploadFile({
-                    url: app.globalData.get_request_url('useravatarupload', 'personal'),
+                    // url: app.globalData.get_request_url('useravatarupload', 'personal'),
+					url: app.globalData.get_request_url('u/uploadUserAvatar'),
+					
                     filePath: image,
                     name: 'file',
                     formData: {},
@@ -216,7 +219,8 @@
                     title: this.$t('common.processing_in_text'),
                 });
                 uni.request({
-                    url: app.globalData.get_request_url('save', 'personal'),
+                    // url: app.globalData.get_request_url('save', 'personal'),
+					url: app.globalData.get_request_url('u/saveUser'),
                     method: 'POST',
                     data: form_data,
                     dataType: 'json',

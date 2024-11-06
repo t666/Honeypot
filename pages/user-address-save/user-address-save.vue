@@ -57,7 +57,7 @@
                                 </view>
                             </view>
                             <!-- 智能识别 -->
-                            <view v-if="is_user_address_discern == 1" class="pr padding-top-sm">
+                            <!-- <view v-if="is_user_address_discern == 1" class="pr padding-top-sm">
                                 <view class="intelligent-identification oh" :style="identfication_show ? 'height:254rpx;' : 'height:0;'">
                                     <view class="bg-base border-radius-main padding-main oh">
                                         <textarea @input="address_discern_value_event" :value="address_discern_value" class="margin-0" :placeholder="$t('user-address-save.user-address-save.b32r6v')" placeholder-class="cr-grey" />
@@ -71,13 +71,13 @@
                                     <text class="padding-right-sm">{{$t('user-address-save.user-address-save.42l857')}}</text>
                                     <iconfont :name="identfication_show ? 'icon-arrow-top' : 'icon-arrow-bottom'" size="28rpx" color="#666"></iconfont>
                                 </view>
-                            </view>
+                            </view> -->
                         </view>
                     </view>
 
                     <view class="border-radius-main bg-white spacing-mb oh">
                         <view class="form-gorup">
-                            <view class="flex-row br-b-f5 padding-top-sm padding-bottom-main">
+                            <!-- <view class="flex-row br-b-f5 padding-top-sm padding-bottom-main">
                                 <view class="form-gorup-title padding-top-sm alias-title">{{$t('user-address-save.user-address-save.231435')}}</view>
                                 <view class="flex-1 flex-width">
                                     <view class="flex-row">
@@ -102,7 +102,7 @@
                                         <input type="hidden" name="alias" :value="address_data.alias" class="dis-none"  />
                                     </view>
                                 </view>
-                            </view>
+                            </view> -->
                             <view class="flex-row jc-sb align-c padding-top-main">
                                 <view class="form-gorup-title default-title">{{$t('user-address-save.user-address-save.g43klm')}}</view>
                                 <switch :color="theme_color" :checked="(address_data.is_default || 0) == 1 ? true : false" @change="default_ads_change_event" />

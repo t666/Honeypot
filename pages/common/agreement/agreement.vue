@@ -3,7 +3,8 @@
         <view class="agreement-page bs-bb pr">
             <view class="agreement-content border-radius-main bg-white" v-if="is_show_privacy">
                 <view class="tc">
-                    <image class="logo circle auto dis-block margin-bottom-lg br" :src="logo" mode="widthFix"></image>
+					<!-- // TODO temp  logo,是原先的，要替换 -->
+                    <!-- <image class="logo circle auto dis-block margin-bottom-lg br" :src="logo" mode="widthFix"></image> -->
                     <view class="cr-base fw-b text-size-lg">{{ title }}{{$t('common.warm_tips')}}</view>
                 </view>
                 <view class="margin-top-lg text-size-sm cr-base content-desc">
@@ -33,7 +34,9 @@
             return {
                 theme_view: app.globalData.get_theme_value_view(),
                 logo: app.globalData.get_application_logo_square(),
+				// TODO temp  用户协议弹窗标题
                 title: app.globalData.get_application_title(),
+				// title: '时达丰',
                 is_show_privacy: false,
                 content: null,
             };

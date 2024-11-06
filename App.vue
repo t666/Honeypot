@@ -16,8 +16,10 @@
                 system_type: 'default',
 
                 // 基础信息
-                application_title: 'ShopXO',
-                application_describe: 'ShopXO Desc',
+                // application_title: 'ShopXO',
+                // application_describe: 'ShopXO Desc',
+				application_title: '时达丰',
+				application_describe: '时达丰',
 
                 // 默认logo、如 /static/images/common/logo.png
                 application_logo: 'https://www.baidu.com/img/flexible/logo/pc/result.png',

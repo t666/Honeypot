@@ -242,7 +242,8 @@
                 var user = app.globalData.get_user_info(this, 'init');
                 if (user != false) {
                     this.setData({
-                        pay_url: app.globalData.get_request_url('pay', 'order'),
+                        // pay_url: app.globalData.get_request_url('pay', 'order'),
+						pay_url: app.globalData.get_request_url('o/payOrder'),
                         qrcode_url: app.globalData.get_request_url('paycheck', 'order'),
                     });
 
@@ -294,8 +295,9 @@
 
                 // 获取数据
                 uni.request({
-                    url: app.globalData.get_request_url('index', 'order'),
-                    method: 'POST',
+                    // url: app.globalData.get_request_url('index', 'order'),
+					url: app.globalData.get_request_url('o/getOrderPage'),
+                    method: 'GET',
                     data: {
                         page: this.data_page,
                         keywords: this.input_keyword_value || '',
@@ -477,7 +479,8 @@
                                 title: this.$t('common.processing_in_text'),
                             });
                             uni.request({
-                                url: app.globalData.get_request_url('cancel', 'order'),
+                                // url: app.globalData.get_request_url('cancel', 'order'),
+								url: app.globalData.get_request_url('o/cancelOrder'),
                                 method: 'POST',
                                 data: {
                                     id: id,

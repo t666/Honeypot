@@ -181,9 +181,10 @@
                             </component-time-select>
                         </view>
                     </view>
+					
 
-                    <!-- 留言 -->
-                    <view class="content-textarea-container padding-main border-radius-main bg-white spacing-mb">
+                    <!-- 留言
+                    <!-- <view class="content-textarea-container padding-main border-radius-main bg-white spacing-mb">
                         <view class="content">
                             <textarea v-if="user_note_status" class="textarea" @blur="bind_user_note_blur_event" @input="bind_user_note_event" :focus="true" :disable-default-padding="false" :value="user_note_value" maxlength="230" :placeholder="$t('buy.buy.2rhko1')"></textarea>
                             <view v-else @tap="bind_user_note_tap_event" :class="'textarea-view ' + ((user_note_value || null) == null ? 'cr-grey' : '')">{{ user_note_value || $t('buy.buy.2rhko1') }}</view>
@@ -198,7 +199,7 @@
                                 </scroll-view>
                             </view>
                         </view>
-                    </view>
+                    </view> -->
                     
                     <!-- 支付选择 -->
                     <view v-if="(total_price > 0 && common_order_is_booking != 1 && payment_list.length > 0) || plugins_coin_is_valid" class="payment-list border-radius-main bg-white oh padding-main spacing-mb">
@@ -604,7 +605,7 @@
                                 };
 
                                 // 商品数据处理
-                                var goods_list = data.goods_list;
+                                var goods_list = data.goods_list;								
                                 for (var i in goods_list) {
                                     // 扩展数据处理，
                                     var temp_extension_data = [];
@@ -792,7 +793,7 @@
                 data['address_id'] = this.address_id;
                 data['payment_id'] = this.payment_id;
                 data['payment_type'] = this.payment_type;
-                data['user_note'] = this.user_note_value;
+                // data['user_note'] = this.user_note_value;
                 data['site_model'] = this.site_model;
 
                 // 数据验证
@@ -847,6 +848,7 @@
                 this.setData({
                     buy_submit_disabled_status: true,
                 });
+				console.log("url = " + app.globalData.get_request_url2('add', 'buy'));
                 uni.request({
 					// TODO temp  参数不确定，返回值不确定
                     // url: app.globalData.get_request_url('add', 'buy'),
