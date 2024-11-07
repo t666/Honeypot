@@ -151,7 +151,7 @@
                 // 获取数据
                 uni.request({
                     // url: app.globalData.get_request_url('datalist', 'index', 'ask'),
-					url: app.globalData.get_request_url('/p/getProductPage'),
+					url: app.globalData.get_request_url('p/getProductPage'),
                     method: 'GET',
                     data: {
                         page: this.data_page,

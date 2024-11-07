@@ -18,12 +18,12 @@
                 // 基础信息
                 // application_title: 'ShopXO',
                 // application_describe: 'ShopXO Desc',
-				application_title: '时达丰',
-				application_describe: '时达丰',
+				application_title: '时达丰精选商城',
+				application_describe: '时达丰精选商城',
 
                 // 默认logo、如 /static/images/common/logo.png
                 // application_logo: 'https://www.baidu.com/img/flexible/logo/pc/result.png',
-				application_logo: 'https://www.shidafeng.net',
+				application_logo: '',
 				
 
                 // 版本号、如: v1.0.0

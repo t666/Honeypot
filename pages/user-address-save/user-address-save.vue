@@ -284,7 +284,7 @@
             get_data() {
                 uni.request({
                     // url: app.globalData.get_request_url('detail', 'useraddress'),
-					url: app.globalData.get_request_url('/u/addr/getAddr'),
+					url: app.globalData.get_request_url('u/addr/getAddr'),
                     method: 'GET',
                     data: {...this.params, ...{is_lang: 0}},
                     dataType: 'json',
@@ -620,7 +620,7 @@
                     });
                     uni.request({
                         // url: app.globalData.get_request_url('save', 'useraddress'),
-						url: app.globalData.get_request_url('/u/addr/save'),
+						url: app.globalData.get_request_url('u/addr/save'),
                         method: 'POST',
                         data: form_data,
                         dataType: 'json',
@@ -800,7 +800,7 @@
                             // 获取数据
                             uni.request({
                                 // url: app.globalData.get_request_url('delete', 'useraddress'),
-								url: app.globalData.get_request_url('/u/addr/delete'),
+								url: app.globalData.get_request_url('u/addr/delete'),
                                 method: 'POST',
                                 data: {
                                     id: value,

@@ -625,7 +625,7 @@
                 // 获取数据
                 uni.request({
                     // url: app.globalData.get_request_url('datalist', 'detail', 'realstore'),
-					url: app.globalData.get_request_url('/p/getProductPage'),
+					url: app.globalData.get_request_url('p/getProductPage'),
                     method: 'GET',
                     data: this.$refs.realstore_cart.request_params_merge(post_data, 'data'),
                     dataType: 'json',
