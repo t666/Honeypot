@@ -1191,7 +1191,7 @@
                 if (this.user != 2) {
                     uni.request({
                         // url: app.globalData.get_request_url('index', 'cart'),
-						url: app.globalData.get_request_url('/c/getCartInfo'),
+						url: app.globalData.get_request_url('c/getCartInfo'),
                         method: 'GET',
                         // data: {userId: this.userId == undefined ? 0 : this.userId},
 						data: {},

@@ -43,7 +43,7 @@
                 // 棕色 brown     #8B4513
                 // 紫色 purple    #623cec
 				// 天青色 skyBlue #87CEEB
-                default_theme: 'orange',
+                default_theme: 'blue',
 
                 // 多语言列表
                 // 增加或者减少语言时
@@ -700,17 +700,13 @@
                                         var client_type = this.application_client_type();
                                         if ((data.is_user_exist || 0) == 1 || client_type == 'weixin') {
 										// if (data.is_user_exist  == 1 ) {
-											console.log("1111111111");
                                             uni.setStorageSync(self.data.cache_user_info_key, data);
                                             if (typeof object === 'object' && (method || null) != null) {
-												console.log("2222222222");
                                                 object[method](params);
                                             }
                                         } else {
-											console.log("3333333");
                                             uni.setStorageSync(self.data.cache_user_login_key, data);
                                             if (is_to_auth) {
-												console.log("444444");
                                                 var pages = getCurrentPages();
                                                 if (pages[pages.length - 1]['route'] == 'pages/login/login') {
                                                     if (typeof object === 'object' && (method || null) != null) {
@@ -2351,7 +2347,8 @@
                     red: '#ff0036', // 红色
                     yellow: '#f6c133', // 黄色
                     black: '#333333', // 黑色
-                    blue: '#1677ff', // 蓝色
+                    // blue: '#1677ff', // 蓝色
+					blue: '#87CEEB', // 蓝色  变天青色
                     green: '#20a53a', // 绿色
                     orange: '#fe6f04', // 橙色
                     brown: '#8B4513', // 棕色
@@ -2362,7 +2359,8 @@
                     red_light: '#ffdbe2', // 红色
                     yellow_light: '#ffebd2', // 黄色
                     black_light: '#dcdcdc', // 黑色
-                    blue_light: '#d1e4ff', // 蓝色
+                    // blue_light: '#d1e4ff', // 蓝色
+					blue_light: '#9FD8EF', // 蓝色
                     green_light: '#cce8d2', // 绿色
                     orange_light: '#fde4d1', // 橙色
                     brown_light: '#eadcd2', // 棕色

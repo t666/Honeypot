@@ -343,7 +343,7 @@
                 var post_data = this.request_map_handle();
                 uni.request({
                     // url: app.globalData.get_request_url("index", "search"),
-					url: app.globalData.get_request_url("/p/getProductPage"),
+					url: app.globalData.get_request_url("p/getProductPage"),
                     method: 'GET',
                     data: post_data,
                     dataType: 'json',
@@ -448,7 +448,7 @@
                 uni.request({
 					// TODO temp  不知道是否是请求这个方法
                     // url: app.globalData.get_request_url("datalist", "search"),
-					url: app.globalData.get_request_url("/p/getProductPage"),
+					url: app.globalData.get_request_url("p/getProductPage"),
                     method: 'GET',
                     data: post_data,
                     dataType: 'json',
