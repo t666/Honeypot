@@ -7,7 +7,7 @@
             data: {
                 // 基础配置
                 // 数据接口请求地址
-                request_url: 'http://www.shidafeng.net/sdf/wx/',
+                request_url: 'https://www.shidafeng.net/sdf/wx/',
 
                 // 静态资源地址（如系统根目录不在public目录下面请在静态地址后面加public目录、如：https://d1.shopxo.vip/public/）
                 static_url: 'https://d1.shopxo.vip/',
@@ -25,10 +25,10 @@
                 application_logo: 'https://www.baidu.com/img/flexible/logo/pc/result.png',
 
                 // 版本号、如: v1.0.0
-                version: 'v6.2',
+                version: 'v1.0.0',
 
                 // app版本信息、如: v1.0.0 20180118
-                app_version_info: 'v6.2 20240704',
+                app_version_info: 'v1.0 20241004',
 
                 // 货币价格符号
                 currency_symbol: '￥',
