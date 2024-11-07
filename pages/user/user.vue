@@ -410,12 +410,12 @@
                                     count: 0,
                                     url: '/pages/user-order/user-order?status=3',
                                 },
-                                {
-                                    name: this.$t('user.user.aa1ri3'),
-                                    status: 101,
-                                    count: 0,
-                                    url: '/pages/user-orderaftersale/user-orderaftersale',
-                                },
+                                // {
+                                //     name: this.$t('user.user.aa1ri3'),
+                                //     status: 101,
+                                //     count: 0,
+                                //     url: '/pages/user-orderaftersale/user-orderaftersale',
+                                // },
                             ];
                             if ((data.user_order_status || null) != null && data.user_order_status.length > 0) {
                                 for (var i in user_order_status_list) {
