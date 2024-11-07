@@ -107,7 +107,7 @@ export default {
         getProvince() {
             uni.request({
                 // url: app.globalData.get_request_url("index", "region"),
-				url: app.globalData.get_request_url("/region/get"),
+				url: app.globalData.get_request_url("region/get"),
                 method: "GET",
                 data: {},
                 dataType: "json",
@@ -133,7 +133,7 @@ export default {
             if (province_id) {
                 uni.request({
                     // url: app.globalData.get_request_url("index", "region"),
-					url: app.globalData.get_request_url("/region/get"),
+					url: app.globalData.get_request_url("region/get"),
                     method: "GET",
                     data: {
                         pid: province_id,
@@ -167,7 +167,7 @@ export default {
                 // 加载loding
                 uni.request({
                     // url: app.globalData.get_request_url("index", "region"),
-					url: app.globalData.get_request_url("/region/get"),
+					url: app.globalData.get_request_url("region/get"),
                     method: "GET",
                     data: {
                         pid: city_id,

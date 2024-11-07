@@ -434,7 +434,7 @@
                             </view>
                         </block>
                         <!-- 客服 -->
-                        <component-online-service
+                        <!-- <component-online-service
                             v-if="common_app_is_online_service == 1"
                             :propIsGoods="true"
                             :propIsNav="true"
@@ -443,7 +443,7 @@
                             :propImg="goods.images"
                             :propPath="'/pages/goods-detail/goods-detail?id=' + goods.id"
                             :propChatUrl="plugins_chat_data == null ? '' : plugins_chat_data.chat_url"
-                        ></component-online-service>
+                        ></component-online-service> -->
                         <!-- 购物车 -->
                         <view v-if="is_opt_cart == 1" class="item cp pr" data-value="/pages/cart-page/cart-page" @tap="url_event">
                             <view class="badge-icon">
