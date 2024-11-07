@@ -11,18 +11,18 @@
                     </view>
 
                     <!-- 手机、邮箱、密码-->
-                    <view v-if="common_user_is_mandatory_bind_mobile == 1 || ((home_user_login_type || null) != null && home_user_login_type.length > 0 && home_user_login_type.indexOf('sms') != -1)" class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/login/login?opt_form=bind_verify" @tap="url_event">
+                    <!-- <view v-if="common_user_is_mandatory_bind_mobile == 1 || ((home_user_login_type || null) != null && home_user_login_type.length > 0 && home_user_login_type.indexOf('sms') != -1)" class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/login/login?opt_form=bind_verify" @tap="url_event">
                         <text>{{ $t('setup.setup.x81v6d') }}</text>
                         <text class="fr cr-grey">{{ user.mobile_security || '' }} {{ (user.mobile_security || null) == null ? $t('setup.setup.dfg4wf') : $t('setup.setup.j6skqh') }}</text>
-                    </view>
-                    <view v-if="(home_user_login_type || null) != null && home_user_login_type.length > 0 && home_user_login_type.indexOf('email') != -1" class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/login/login?opt_type=bind_email&opt_form=bind_email" @tap="url_event">
+                    </view> -->
+                    <!-- <view v-if="(home_user_login_type || null) != null && home_user_login_type.length > 0 && home_user_login_type.indexOf('email') != -1" class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/login/login?opt_type=bind_email&opt_form=bind_email" @tap="url_event">
                         <text>{{$t('setup.setup.5u59b1')}}</text>
                         <text class="fr cr-grey">{{ user.email_security || '' }} {{ (user.email_security || null) == null ? $t('setup.setup.dfg4wf') : $t('setup.setup.j6skqh') }}</text>
                     </view>
                     <view class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/password/password" @tap="url_event">
                         <text>{{$t('setup.setup.v8438r')}}</text>
                         <text class="fr cr-grey">{{ $t('setup.setup.j6skqh') }}</text>
-                    </view>
+                    </view> -->
 
                     <!-- 第三方账户绑定-->
                     <!-- #ifdef APP || H5 -->
@@ -58,10 +58,10 @@
                         <text>{{ $t('setup.setup.42mba7') }}</text>
                         <text class="fr cr-grey">{{ $t('setup.setup.5eltza') }}</text>
                     </view>
-                    <view v-if="(plugins_invoice || null) != null" class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/plugins/invoice/invoice/invoice" @tap="url_event">
+                    <!-- <view v-if="(plugins_invoice || null) != null" class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/plugins/invoice/invoice/invoice" @tap="url_event">
                         <text>{{ $t('setup.setup.t60222') }}</text>
                         <text class="fr cr-grey">{{ $t('setup.setup.izg78g') }}</text>
-                    </view>
+                    </view> -->
                 </view>
             </block>
 
@@ -81,10 +81,10 @@
                     <text>{{ $t('setup.setup.656fv1') }}</text>
                     <text class="fr cr-grey">{{ common_app_customer_service_tel || '' }} {{ $t('setup.setup.f25wcx') }}</text>
                 </view>
-                <view v-if="(user || null) != null" class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/logout/logout" @tap="url_event">
+                <!-- <view v-if="(user || null) != null" class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/logout/logout" @tap="url_event">
                     <text>{{ $t('setup.setup.11k15d') }}</text>
                     <text class="fr cr-grey">{{ $t('setup.setup.48r261') }}</text>
-                </view>
+                </view> -->
                 <view class="item padding-vertical-xxl padding-right-xxxl arrow-right" data-value="/pages/about/about" @tap="url_event">
                     <text>{{ $t('setup.setup.tghrf2') }}</text>
                 </view>

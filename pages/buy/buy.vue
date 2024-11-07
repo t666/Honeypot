@@ -533,7 +533,10 @@
                     data_list_loding_status: 1,
                 });
                 var data = this.params;
-                data['address_id'] = this.address_id;
+                if (this.address_id !== null) {
+                    // 如果不是null，则赋值给data['address_id']
+                    data['address_id'] = this.address_id;
+                }
                 data['payment_id'] = this.payment_id;
                 data['site_model'] = this.site_model;
                 uni.request({

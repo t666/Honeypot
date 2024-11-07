@@ -18,7 +18,7 @@
                     </view>
                 </view>
             </view>
-            <view class="margin-top cr-grey-c">Copyright 2018-{{year}} by {{title}}</view>
+            <!-- <view class="margin-top cr-grey-c">Copyright 2018-{{year}} by {{title}}</view> -->
         </view>
     </view>
 </template>

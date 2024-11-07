@@ -19,10 +19,10 @@
                                 <iconfont :name="'icon-zhifu-'+((order_select_ids.indexOf(item.id) != -1) ? 'yixuan' : 'weixuan')" size="34rpx" :color="(order_select_ids.indexOf(item.id) != -1) ? theme_color : '#999'" propClass="fl margin-top-xs"></iconfont>
                             </view>
                             <!-- 基础信息 -->
-                            <view class="dis-inline-block va-m cp" @tap="url_event" :data-value="item.warehouse_url || ''">
+                            <!-- <view class="dis-inline-block va-m cp" @tap="url_event" :data-value="item.warehouse_url || ''">
                                 <image v-if="(item.warehouse_icon || null) != null" class="warehouse-group-icon va-m margin-right-sm" :src="item.warehouse_icon" mode="aspectFit"></image>
                                 <text class="cr-base va-m">{{ item.warehouse_name }}</text>
-                            </view>
+                            </view> -->
                             <!-- <text class="fr cr-red">{{ item.status_name }}<text v-if="(item.is_under_line_text || null) != null">（{{ item.is_under_line_text }}）</text></text> -->
                         </view>
                         <view v-for="(detail, di) in item.items" :key="di" class="br-b-dashed oh padding-vertical-main">
@@ -69,12 +69,12 @@
                             "
                             class="item-operation tr br-t padding-top-main">
                             <button v-if="item.operate_data.is_cancel == 1" class="round bg-white cr-yellow br-yellow margin-bottom-main" type="default" size="mini" @tap="cancel_event" :data-value="item.id" :data-index="index" hover-class="none">{{$t('common.cancel')}}</button>
-                            <button v-if="item.operate_data.is_pay == 1" class="round bg-white cr-green br-green margin-bottom-main" type="default" size="mini" @tap="pay_event" :data-value="item.id" :data-index="index" :data-price="item.total_price" :data-payment="item.payment_id" :data-currency-symbol="item.currency_data.currency_symbol" hover-class="none">{{$t('order.order.1i873j')}}</button>
-                            <button v-if="item.operate_data.is_collect == 1" class="round bg-white cr-green br-green margin-bottom-main" type="default" size="mini" @tap="collect_event" :data-value="item.id" :data-index="index" hover-class="none">{{$t('orderallot-list.orderallot-list.w2w2w4')}}</button>
+                            <!-- <button v-if="item.operate_data.is_pay == 1" class="round bg-white cr-green br-green margin-bottom-main" type="default" size="mini" @tap="pay_event" :data-value="item.id" :data-index="index" :data-price="item.total_price" :data-payment="item.payment_id" :data-currency-symbol="item.currency_data.currency_symbol" hover-class="none">{{$t('order.order.1i873j')}}</button> -->
+                            <!-- <button v-if="item.operate_data.is_collect == 1" class="round bg-white cr-green br-green margin-bottom-main" type="default" size="mini" @tap="collect_event" :data-value="item.id" :data-index="index" hover-class="none">{{$t('orderallot-list.orderallot-list.w2w2w4')}}</button> -->
                             <button v-if="(item.plugins_express_data || 0) == 1 && (item.express_data || null) != null" class="round bg-white cr-main br-main margin-bottom-main" type="default" size="mini" @tap="url_event" :data-value="'/pages/plugins/express/detail/detail?oid=' + item.id" hover-class="none">{{$t('orderallot-list.orderallot-list.w2t242')}}</button>
                             <button v-if="(item.plugins_delivery_data || 0) == 1" class="round bg-white cr-main br-main margin-bottom-main" type="default" size="mini" @tap="url_event" :data-value="'/pages/plugins/delivery/logistics/logistics?id=' + item.id" hover-class="none">{{$t('orderallot-list.orderallot-list.w2t242')}}</button>
                             <button v-if="item.operate_data.is_comments == 1" class="round bg-white cr-green br-green margin-bottom-main" type="default" size="mini" @tap="comments_event" :data-value="item.id" :data-index="index" hover-class="none">{{$t('user-order.user-order.twc3r7')}}</button>
-                            <button v-if="item.status == 2 && item.order_model != 2" class="round cr-base br margin-bottom-main" type="default" size="mini" @tap="rush_event" :data-value="item.id" :data-index="index" hover-class="none">{{$t('user-order.user-order.lp1v28')}}</button>
+                            <!-- <button v-if="item.status == 2 && item.order_model != 2" class="round cr-base br margin-bottom-main" type="default" size="mini" @tap="rush_event" :data-value="item.id" :data-index="index" hover-class="none">{{$t('user-order.user-order.lp1v28')}}</button> -->
                             <button v-if="item.operate_data.is_delete == 1" class="round bg-white cr-red br-red margin-bottom-main" type="default" size="mini" @tap="delete_event" :data-value="item.id" :data-index="index" hover-class="none">{{$t('common.del')}}</button>
                             <button v-if="(item.plugins_is_order_allot_button || 0) == 1" class="round bg-white cr-main br-main margin-bottom-main" type="default" size="mini" @tap="url_event" :data-value="'/pages/plugins/realstore/orderallot-list/orderallot-list?oid=' + item.id" hover-class="none">{{$t('user-order.user-order.ht65c9')}}</button>
                             <button v-if="(item.plugins_is_order_batch_button || 0) == 1" class="round bg-white cr-blue br-blue margin-bottom-main" type="default" size="mini" @tap="url_event" :data-value="'/pages/plugins/realstore/batchorder-list/batchorder-list?oid=' + item.id" hover-class="none">{{$t('orderallot-list.orderallot-list.6m73j2')}}</button>
@@ -94,11 +94,11 @@
         </scroll-view>
 
         <!-- 合并支付 -->
-        <view v-if="nav_status_index == 1 && order_select_ids.length > 0 && home_is_enable_order_bulk_pay == 1" class="bottom-fixed tc">
+        <!-- <view v-if="nav_status_index == 1 && order_select_ids.length > 0 && home_is_enable_order_bulk_pay == 1" class="bottom-fixed tc">
             <view class="bottom-line-exclude">
                 <button class="pay-merge-submit bg-green cr-white round text-size" hover-class="none" @tap="pay_merge_event">{{$t('user-order.user-order.7571p2')}}</button>
             </view>
-        </view>
+        </view> -->
 
         <!-- 支付组件 -->
         <component-payment
@@ -147,7 +147,8 @@
                     { name: this.$t('user.user.66714e'), value: '2' },
                     { name: this.$t('order.order.q820hx'), value: '3' },
                     { name: this.$t('order.order.15lr5l'), value: '4' },
-                    { name: this.$t('detail.detail.32171c'), value: '5,6' },
+                    // { name: this.$t('detail.detail.32171c'), value: '5,6' },
+					{ name: this.$t('detail.detail.32171c'), value: '5' },
                 ],
                 mult_payment_id_list: [],
                 order_select_ids: [],

@@ -33,12 +33,12 @@
                                 </view>
                             </view>
 
-                            <view class="form-gorup oh flex-row jc-sb align-c">
+                            <!-- <view class="form-gorup oh flex-row jc-sb align-c">
                                 <view class="form-gorup-title">{{$t('personal.personal.6m33c4')}}</view>
                                 <view class="flex-row align-c flex-1 flex-width">
                                     <input type="text" name="address" :value="user_data.address || ''" maxlength="30" placeholder-class="cr-grey-9 tr" class="cr-base tr margin-right-sm" :placeholder="$t('personal.personal.re674n')" />
                                 </view>
-                            </view>
+                            </view> -->
 
                             <view class="form-gorup oh flex-row jc-sb align-c">
                                 <view class="form-gorup-title">{{$t('personal.personal.x2fofv')}}</view>
@@ -129,6 +129,8 @@
                                 user_data: res.data.data.data || {},
                                 gender_list: res.data.data.gender_list || [],
                             });
+							this.user_data['birthday'] = this.user_data['birthday_text'];
+							console.log("user_data = " + JSON.stringify(this.user_data, null, 2));
                         } else {
                             this.setData({
                                 data_list_loding_status: 0,
