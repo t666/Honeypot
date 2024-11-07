@@ -800,7 +800,7 @@
                 data['stock'] = this.buy_number;
                 uni.request({
                     // url: app.globalData.get_request_url('save', 'cart'),
-					url: app.globalData.get_request_url('c/saveCart'),
+					url: app.globalData.get_request_url('c/updateStock'),
                     method: 'POST',
                     data: data,
                     dataType: 'json',

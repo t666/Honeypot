@@ -1105,7 +1105,7 @@
             cart_save(goods_id, buy_number, spec = '') {
                 uni.request({
                     // url: app.globalData.get_request_url('save', 'cart'),
-					url: app.globalData.get_request_url('c/saveCart'),
+					url: app.globalData.get_request_url('c/updateStock'),
                     method: 'POST',
                     data: {
                         goods_id: goods_id,
