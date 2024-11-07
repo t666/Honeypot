@@ -22,7 +22,9 @@
 				application_describe: '时达丰',
 
                 // 默认logo、如 /static/images/common/logo.png
-                application_logo: 'https://www.baidu.com/img/flexible/logo/pc/result.png',
+                // application_logo: 'https://www.baidu.com/img/flexible/logo/pc/result.png',
+				application_logo: 'https://www.shidafeng.net',
+				
 
                 // 版本号、如: v1.0.0
                 version: 'v1.0.0',

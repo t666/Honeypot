@@ -900,7 +900,7 @@
                 // 获取数据
                 uni.request({
                     // url: app.globalData.get_request_url('detail', 'goods'),
-					url: app.globalData.get_request_url('/p/getProduct'),
+					url: app.globalData.get_request_url('p/getProduct'),
                     method: 'GET',
                     data: this.params,
                     dataType: 'json',

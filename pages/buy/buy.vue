@@ -542,7 +542,7 @@
                 uni.request({
                     // url: app.globalData.get_request_url('index', 'buy'),
 					// TODO temp  预览下单页面
-					url: app.globalData.get_request_url('/c/buyCart'),
+					url: app.globalData.get_request_url('c/buyCart'),
                     method: 'GET',
                     data: this.request_data_ext_params_merge(data),
                     dataType: 'json',
@@ -851,11 +851,10 @@
                 this.setData({
                     buy_submit_disabled_status: true,
                 });
-				console.log("url = " + app.globalData.get_request_url2('add', 'buy'));
                 uni.request({
 					// TODO temp  参数不确定，返回值不确定
                     // url: app.globalData.get_request_url('add', 'buy'),
-					url: app.globalData.get_request_url('/o/placeOrder'),
+					url: app.globalData.get_request_url('o/placeOrder'),
                     method: 'POST',
                     data: data,
                     dataType: 'json',
