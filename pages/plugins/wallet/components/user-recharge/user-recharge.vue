@@ -91,7 +91,7 @@
                 params: null,
                 nav_status_list: [
                     { name: this.$t('common.all'), value: '-1' },
-                    { name: this.$t('order.order.pjb15r'), value: '0' },
+                    // { name: this.$t('order.order.pjb15r'), value: '0' },
                     { name: this.$t('order.order.s8g966'), value: '1' },
                 ],
                 nav_status_index: 0,

@@ -393,23 +393,29 @@
                             // 订单状态总数
                             var user_order_status_list = [
                                 {
-                                    name: this.$t('user.user.9u8e61'),
+                                    name: this.$t('user.user.9u8e61'),//待付款
                                     status: 1,
                                     count: 0,
                                     url: '/pages/user-order/user-order?status=1',
                                 },
                                 {
-                                    name: this.$t('user.user.66714e'),
+                                    name: this.$t('user.user.66714e'),//待发货
                                     status: 2,
                                     count: 0,
                                     url: '/pages/user-order/user-order?status=2',
                                 },
-                                {
-                                    name: this.$t('order.order.q820hx'),
-                                    status: 3,
-                                    count: 0,
-                                    url: '/pages/user-order/user-order?status=3',
-                                },
+								{
+								    name: this.$t('order.order.15lr5l'),//已完成
+								    status: 4,
+								    count: 0,
+								    url: '/pages/user-order/user-order?status=4',
+								},
+                                // {
+                                //     name: this.$t('order.order.q820hx'),
+                                //     status: 3,
+                                //     count: 0,
+                                //     url: '/pages/user-order/user-order?status=3',
+                                // },
                                 // {
                                 //     name: this.$t('user.user.aa1ri3'),
                                 //     status: 101,

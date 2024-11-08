@@ -1092,9 +1092,12 @@
                     uni.showLoading({
                         title: this.$t('common.processing_in_text'),
                     });
+					
                     var self = this;
                     uni.request({
-                        url: app.globalData.get_request_url('onekeyusermobilebind', 'user'),
+                        // url: app.globalData.get_request_url('onekeyusermobilebind', 'user'),
+						url: app.globalData.get_request_url('u/bindPhone'),
+						
                         method: 'POST',
                         data: data,
                         dataType: 'json',

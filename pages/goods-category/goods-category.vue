@@ -1292,7 +1292,6 @@
                 // 获取购物车数据
                 var ids = [];
                 if ((this.cart || null) != null) {
-					console.log("cart = " + JSON.stringify(this.cart, null, 2));
                     var temp_data = this.cart.data || [];
                     for (var i in temp_data) {
                         if (temp_data[i]['is_error'] == 0) {

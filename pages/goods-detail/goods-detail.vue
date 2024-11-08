@@ -898,6 +898,7 @@
 				// TODO temp  params.id 为空值，报错，
 				// this.params.id = 1;
                 // 获取数据
+				
                 uni.request({
                     // url: app.globalData.get_request_url('detail', 'goods'),
 					url: app.globalData.get_request_url('p/getProduct'),

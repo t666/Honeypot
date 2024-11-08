@@ -88,10 +88,10 @@
                         name: this.$t('common.all'),
                         value: '-1',
                     },
-                    {
-                        name: this.$t('order.order.pjb15r'),
-                        value: '0',
-                    },
+                    // {
+                    //     name: this.$t('order.order.pjb15r'),
+                    //     value: '0',
+                    // },
                     {
                         name: this.$t('order.order.s8g966'),
                         value: '1',
@@ -100,10 +100,10 @@
                         name: this.$t('order.order.1k98tk'),
                         value: '2',
                     },
-                    {
-                        name: this.$t('order.order.6390gk'),
-                        value: '3',
-                    },
+                    // {
+                    //     name: this.$t('order.order.6390gk'),
+                    //     value: '3',
+                    // },
                 ],
                 nav_status_index: 0,
                 content_list: [
