@@ -836,3 +836,105 @@
 .theme-purple .nav-left-border::before {
 	background: #623cec;
 }
+
+/******************** 天青色 ********************/
+/**
+ * 边线 搭配色、次主色、主色
+ */
+.theme-skyblue .border-color-main-pair {
+	border-color: #16CEFF !important;
+}
+.theme-skyblue .border-color-main-light {
+	border-color: #9FD8EF !important;
+}
+.theme-skyblue .border-color-main {
+	border-color: #87CEEB !important;
+}
+
+/**
+ * 边框 搭配色、次主色、主色
+ */
+.theme-skyblue .br-main-pair {
+	border: 1px solid #16CEFF !important;
+}
+.theme-skyblue .br-main-light {
+	border: solid 1px #9FD8EF !important;
+}
+.theme-skyblue .br-main {
+	border: 1px solid #87CEEB !important;
+}
+
+/**
+ * 虚线边框 搭配色、次主色、主色
+ */
+.theme-skyblue .br-dashed-main-pair {
+	border: dashed 1px #16CEFF !important;
+}
+.theme-skyblue .br-dashed-main-light {
+	border: dashed 1px #9FD8EF !important;
+}
+.theme-skyblue .br-dashed-main {
+	border: dashed 1px #87CEEB !important;
+}
+
+/**
+ * 文本颜色 搭配色、次主色、主色
+ */
+.theme-skyblue .cr-main-pair {
+	color: #16CEFF !important;
+}
+.theme-skyblue .cr-main-light {
+	color: #9FD8EF !important;
+}
+.theme-skyblue .cr-main {
+	color: #87CEEB !important;
+}
+
+/**
+ * 背景色 搭配色、次主色、主色
+ */
+.theme-skyblue .bg-main-pair {
+	background-color: #16CEFF !important;
+}
+.theme-skyblue .bg-main-light {
+	background-color: #9FD8EF !important;
+}
+.theme-skyblue .bg-main {
+	background-color: #87CEEB !important;
+}
+
+/**
+ * 导航伪类背景色
+ */
+.theme-skyblue .nav-active-line::before {
+	background: #87CEEB;
+}
+.theme-skyblue button[disabled].bg-main-pair {
+	background-color: #efcbf5 !important;
+    border-color: #efcbf5 !important;
+	color: #faf1fb !important;
+}
+.theme-skyblue button[disabled].bg-main-light {
+	background-color: #e3eefd !important;
+    border-color: #e3eefd !important;
+	color: #b9d3f7 !important;
+}
+.theme-skyblue button[disabled].bg-main {
+	background-color: #bcd3f5 !important;
+    border-color: #bcd3f5 !important;
+	color: #eef4fd !important;
+}
+
+/**
+ * 标题左侧边线
+*/
+.theme-skyblue .title-left-border::before {
+	background: linear-gradient(180deg, #87CEEB 0%, #9FD8EF 100%);
+}
+
+/**
+ * 导航菜单左侧边线
+ */
+.theme-skyblue .nav-left-border::before {
+	background: #87CEEB;
+}

@@ -74,13 +74,13 @@
                     },
                     "weixin" : {
                         "__platform__" : [ "ios", "android" ],
-                        "appid" : "wx3bac19ff90c0a976",
-                        "UniversalLinks" : "https://d1.shopxo.vip/.well-known/"
+                        "appid" : "wx1303a2ec73dead30",
+                        "UniversalLinks" : ""
                     },
                     "paypal" : {
                         "__platform__" : [ "ios", "android" ],
-                        "returnURL_ios" : "com.shopxo.mm://paypal",
-                        "returnURL_android" : "com.shopxo.mm://paypal"
+                        "returnURL_ios" : "",
+                        "returnURL_android" : ""
                     }
                 },
                 "ad" : {},
@@ -88,13 +88,13 @@
                     "univerify" : {},
                     "apple" : {},
                     "weixin" : {
-                        "appid" : "wx3bac19ff90c0a976",
-                        "appsecret" : "91f132b39c5c575fe61b04993c57c734",
-                        "UniversalLinks" : "https://d1.shopxo.vip/.well-known/"
+                        "appid" : "",
+                        "appsecret" : "",
+                        "UniversalLinks" : ""
                     },
                     "qq" : {
-                        "appid" : "102076195",
-                        "UniversalLinks" : "https://d1.shopxo.vip/.well-known/"
+                        "appid" : "",
+                        "UniversalLinks" : ""
                     },
                     "google" : {
                         "clientid" : "510187709509-fq3t5grcfh81t4ub491tiadrtfjbaes1.apps.googleusercontent.com"
@@ -102,9 +102,9 @@
                 },
                 "maps" : {
                     "amap" : {
-                        "name" : "amapu9VF72Gg",
-                        "appkey_ios" : "f55e9099897821681f5c74051e4527bd",
-                        "appkey_android" : "ebe9f1d84f8ceb8b3c4ba6ead2bfa78b"
+                        "name" : "",
+                        "appkey_ios" : "",
+                        "appkey_android" : ""
                     }
                 },
                 "geolocation" : {
@@ -114,12 +114,12 @@
                 },
                 "share" : {
                     "weixin" : {
-                        "appid" : "wx3bac19ff90c0a976",
-                        "UniversalLinks" : "https://d1.shopxo.vip/.well-known/"
+                        "appid" : "wx1303a2ec73dead30",
+                        "UniversalLinks" : ""
                     },
                     "qq" : {
-                        "appid" : "102076195",
-                        "UniversalLinks" : "https://d1.shopxo.vip/.well-known/"
+                        "appid" : "",
+                        "UniversalLinks" : ""
                     }
                 },
                 "push" : {}
@@ -200,7 +200,7 @@
     // }
     "mp-alipay" : {
         "usingComponents" : true,
-        "appid" : "2021001173639600"
+        "appid" : ""
     },
     "mp-baidu" : {
         "usingComponents" : true,
@@ -211,7 +211,7 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true,
-        "appid" : "ttfb628ddf6458b04f",
+        "appid" : "",
         "setting" : {
             "urlCheck" : false
         }
@@ -221,7 +221,7 @@
         "downloadFile" : 10000
     },
     "mp-qq" : {
-        "appid" : "1110736292",
+        "appid" : "",
         "setting" : {
             "urlCheck" : false
         },
@@ -232,7 +232,7 @@
         }
     },
     "mp-kuaishou" : {
-        "appid" : "ks669910446353970565"
+        "appid" : ""
     },
     "h5" : {
         "sdkConfigs" : {

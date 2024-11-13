@@ -205,7 +205,8 @@
                         title: this.$t('common.processing_in_text'),
                     });
                     uni.request({
-                        url: app.globalData.get_request_url('save', 'personal'),
+                        // url: app.globalData.get_request_url('save', 'personal'),
+						url: app.globalData.get_request_url('u/saveUser'),
                         method: 'POST',
                         data: form_data,
                         dataType: 'json',

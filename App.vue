@@ -7,10 +7,10 @@
             data: {
                 // 基础配置
                 // 数据接口请求地址
-                request_url: 'https://www.shidafeng.net/sdf/wx/',
+                request_url: 'https://shidafeng.net/sdf/wx/',
 
                 // 静态资源地址（如系统根目录不在public目录下面请在静态地址后面加public目录、如：https://d1.shopxo.vip/public/）
-                static_url: 'https://d1.shopxo.vip/',
+				static_url: 'https://shidafeng.net/sdf/file/local-plus/upload/image/',
 
                 // 系统类型（默认default、如额外独立小程序、可与程序分身插件实现不同主体小程序及支付独立）
                 system_type: 'default',
@@ -43,7 +43,7 @@
                 // 棕色 brown     #8B4513
                 // 紫色 purple    #623cec
 				// 天青色 skyBlue #87CEEB
-                default_theme: 'blue',
+                default_theme: 'skyblue',
 
                 // 多语言列表
                 // 增加或者减少语言时
@@ -1850,7 +1850,8 @@
                                 title: i18n.t('common.processing_in_text'),
                             });
                             uni.request({
-                                url: this.get_request_url('tokenuserinfo', 'user'),
+                                // url: this.get_request_url('tokenuserinfo', 'user'),
+								url: this.get_request_url('u/tokenUserInfo'),
                                 method: 'POST',
                                 data: {},
                                 dataType: 'json',
@@ -2347,25 +2348,25 @@
                     red: '#ff0036', // 红色
                     yellow: '#f6c133', // 黄色
                     black: '#333333', // 黑色
-                    // blue: '#1677ff', // 蓝色
-					blue: '#87CEEB', // 蓝色  变天青色
+                    blue: '#1677ff', // 蓝色
+					// blue: '#87CEEB', // 蓝色  变天青色
                     green: '#20a53a', // 绿色
                     orange: '#fe6f04', // 橙色
                     brown: '#8B4513', // 棕色
                     purple: '#623cec', // 紫色
-					skyBlue: '#87CEEB', // 天青色
+					skyblue: '#87CEEB', // 天青色
 
                     // 浅主色
                     red_light: '#ffdbe2', // 红色
                     yellow_light: '#ffebd2', // 黄色
                     black_light: '#dcdcdc', // 黑色
-                    // blue_light: '#d1e4ff', // 蓝色
-					blue_light: '#9FD8EF', // 蓝色
+                    blue_light: '#d1e4ff', // 蓝色
+					// blue_light: '#9FD8EF', // 蓝色
                     green_light: '#cce8d2', // 绿色
                     orange_light: '#fde4d1', // 橙色
                     brown_light: '#eadcd2', // 棕色
                     purple_light: '#d6cbfb', // 紫色
-					skyBlue_light: '#9FD8EF', // 天青色
+					skyblue_light: '#9FD8EF', // 天青色
                 };
                 // 当前主题
                 if ((theme || null) == null) {
