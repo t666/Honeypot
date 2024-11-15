@@ -74,13 +74,7 @@
                     },
                     "weixin" : {
                         "__platform__" : [ "ios", "android" ],
-                        "appid" : "wx1303a2ec73dead30",
-                        "UniversalLinks" : ""
-                    },
-                    "paypal" : {
-                        "__platform__" : [ "ios", "android" ],
-                        "returnURL_ios" : "",
-                        "returnURL_android" : ""
+                        "appid" : "wx1303a2ec73dead30"
                     }
                 },
                 "ad" : {},
@@ -88,25 +82,11 @@
                     "univerify" : {},
                     "apple" : {},
                     "weixin" : {
-                        "appid" : "",
-                        "appsecret" : "",
-                        "UniversalLinks" : ""
-                    },
-                    "qq" : {
-                        "appid" : "",
-                        "UniversalLinks" : ""
-                    },
-                    "google" : {
-                        "clientid" : "510187709509-fq3t5grcfh81t4ub491tiadrtfjbaes1.apps.googleusercontent.com"
+                        "appid" : "wx1303a2ec73dead30",
+                        "appsecret" : "a012be1807c0194a670373c89e8d16ea"
                     }
                 },
-                "maps" : {
-                    "amap" : {
-                        "name" : "",
-                        "appkey_ios" : "",
-                        "appkey_android" : ""
-                    }
-                },
+                "maps" : {},
                 "geolocation" : {
                     "system" : {
                         "__platform__" : [ "ios", "android" ]
@@ -114,12 +94,7 @@
                 },
                 "share" : {
                     "weixin" : {
-                        "appid" : "wx1303a2ec73dead30",
-                        "UniversalLinks" : ""
-                    },
-                    "qq" : {
-                        "appid" : "",
-                        "UniversalLinks" : ""
+                        "appid" : "wx1303a2ec73dead30"
                     }
                 },
                 "push" : {}
