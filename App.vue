@@ -68,7 +68,7 @@
                 is_forbid_to_goods_detail: 0,
 
                 // 开启浮动客服、前提是后台需要开启客服功能（0否, 1是）
-                is_online_service_fixed: 0,
+                is_online_service_fixed: 1,
 
                 // 分类页面商品列表模式一级分类使用图标类型（0 实景图, 1 icon图标, 2 大图片）
                 category_goods_model_icon_type: 0,
