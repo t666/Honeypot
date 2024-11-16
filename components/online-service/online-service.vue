@@ -39,23 +39,23 @@
     	                    <view class="ring"></view>
                             <block v-if="is_chat == 1">
                                 <button type="default" :class="common_ent" @tap="chat_event">
-                                    <image class="icon dis-block" :src="common_static_url+'online-service-icon.png'"></image>
+                                    <image class="icon dis-block" :src="common_static_url+'online-service-icon_1.png'"></image>
                                 </button>
                             </block>
                             <block v-else>
                                 <!-- #ifdef MP-WEIXIN || MP-TOUTIAO || MP-BAIDU -->
                                 <button open-type="contact" :class="common_ent" :show-message-card="propCard" :send-message-title="propTitle" :send-message-path="propPath" :send-message-img="propImg">
-                                    <image class="icon dis-block" :src="common_static_url+'online-service-icon.png'"></image>
+                                    <image class="icon dis-block" :src="common_static_url+'online-service-icon_1.png'"></image>
                                 </button>
                                 <!-- #endif -->
                                 <!-- #ifdef MP-ALIPAY -->
                                 <button open-type="contact" :class="'alipay-contact '+common_ent">
-                                    <contact-button :tnt-inst-id="mini_alipay_tnt_inst_id" :scene="mini_alipay_scene" :alipay-card-no="mini_alipay_openid || ''" :icon="common_static_url+'online-service-icon.png'" size="40rpx*40rpx" />
+                                    <contact-button :tnt-inst-id="mini_alipay_tnt_inst_id" :scene="mini_alipay_scene" :alipay-card-no="mini_alipay_openid || ''" :icon="common_static_url+'online-service-icon_1.png'" size="40rpx*40rpx" />
                                 </button>
                                 <!-- #endif -->
                                 <!-- #ifdef H5 || APP -->
                                 <button type="default" :class="common_ent" @tap="call_event">
-                                    <image class="icon dis-block" :src="common_static_url+'online-service-icon.png'"></image>
+                                    <image class="icon dis-block" :src="common_static_url+'online-service-icon_1.png'"></image>
                                 </button>
                                 <!-- #endif -->
                             </block>
