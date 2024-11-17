@@ -131,6 +131,10 @@
                                     <view class="item-name single-text cr-base text-size-sm">{{ item.name }}</view>
                                 </view>
                             </block>
+							<view @tap="chat_event" class="nav-item padding-vertical-main padding-horizontal-xs fl tc cp">
+								<image :src="common_static_url + 'customer-service-icon.png'" class="item-icon" mode="widthFix"></image>
+								<view class="item-name single-text cr-base text-size-sm">{{ $t('online-service.online-service.4l6k22') }}</view>
+							</view>
                             <!-- 清除缓存 -->
                             <view v-if="(nav_logout_data || null) != null" class="nav-item padding-vertical-main padding-horizontal-xs fl tc cp" @tap="remove_user_cache_event">
                                 <image :src="common_static_url + nav_logout_data.icon + '-icon.png'" class="item-icon" mode="widthFix"></image>
@@ -208,6 +212,9 @@
                 payment_page_url: null,
                 // 用户中心菜单展示模式
                 nav_show_model_type: app.globalData.data.user_center_nav_show_model_type,
+				common_app_customer_service_custom: null,
+				common_app_customer_service_company_weixin_corpid: 'wwe81da208bbb34120',
+				common_app_customer_service_company_weixin_url: 'https://work.weixin.qq.com/kfid/kfc7964a0822aeee69c',
             };
         },
 
@@ -314,6 +321,8 @@
                     }
                     this.setData({
                         common_app_customer_service_tel: app.globalData.get_config('config.common_app_customer_service_tel'),
+						common_app_customer_service_company_weixin_corpid: app.globalData.get_config('config.common_app_customer_service_company_weixin_corpid', null),
+						common_app_customer_service_company_weixin_url: app.globalData.get_config('config.common_app_customer_service_company_weixin_url', null),
                         common_user_center_notice: app.globalData.get_config('config.common_user_center_notice'),
                         common_app_is_online_service: app.globalData.get_config('config.common_app_is_online_service'),
                         common_app_is_head_vice_nav: app.globalData.get_config('config.common_app_is_head_vice_nav'),
@@ -423,17 +432,28 @@
                                 //     url: '/pages/user-orderaftersale/user-orderaftersale',
                                 // },
                             ];
-                            if ((data.user_order_status || null) != null && data.user_order_status.length > 0) {
-                                for (var i in user_order_status_list) {
-                                    for (var t in data.user_order_status) {
-                                        if (user_order_status_list[i]['status'] == data.user_order_status[t]['status']) {
-                                            user_order_status_list[i]['count'] = data.user_order_status[t]['count'];
-                                            user_order_status_list[i]['icon'] = this.static_url + 'order-icon-' + user_order_status_list[i]['status'] + '.png';
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
+							for (var i in user_order_status_list) {
+								user_order_status_list[i]['icon'] = this.static_url + 'order-icon-' + user_order_status_list[i]['status'] + '.png';
+							    // for (var t in data.user_order_status) {
+							    //     if (user_order_status_list[i]['status'] == data.user_order_status[t]['status']) {
+							    //         user_order_status_list[i]['count'] = data.user_order_status[t]['count'];
+							    //         user_order_status_list[i]['icon'] = this.static_url + 'order-icon-' + user_order_status_list[i]['status'] + '.png';
+							    //         break;
+							    //     }
+							    // }
+							}
+           //                  if ((data.user_order_status || null) != null && data.user_order_status.length > 0) {
+           //                      for (var i in user_order_status_list) {
+           //                          for (var t in data.user_order_status) {
+           //                              if (user_order_status_list[i]['status'] == data.user_order_status[t]['status']) {
+           //                                  user_order_status_list[i]['count'] = data.user_order_status[t]['count'];
+           //                                  user_order_status_list[i]['icon'] = this.static_url + 'order-icon-' + user_order_status_list[i]['status'] + '.png';
+											// console.log("1111   = " + user_order_status_list[i]['icon']);
+           //                                  break;
+           //                              }
+           //                          }
+           //                      }
+           //                  }
 
                             // 导航处理，是否存在主要的订单+副导航
                             var main_navigation_data = [];
@@ -574,7 +594,83 @@
                     return false;
                 }
                 return true;
-            }
+            },
+			// // 客服事件
+			// chat_event() {
+			//     // 在线客服系统
+			//     if((this.chat_url || null) != null) {
+			//         app.globalData.chat_entry_handle(this.chat_url);
+			//     } else {
+			//         // 自定义客服
+			//         if((this.common_app_customer_service_custom || null) != null) {
+			//             app.globalData.url_open(this.common_app_customer_service_custom);
+			//         } else {
+			//             // 企业微信客服
+			//             if((this.common_app_customer_service_company_weixin_corpid || null) != null && (this.common_app_customer_service_company_weixin_url || null) != null) {
+			//                 // #ifdef APP
+			//                 // app打开企业微信客服
+			//                 plus.share.getServices(res => {
+			//                     var wechat = res.find(i => i.id === 'weixin')
+			//                     if(wechat) {
+			//                         wechat.openCustomerServiceChat({
+			//                             corpid: this.common_app_customer_service_company_weixin_corpid,
+			//                             url: this.common_app_customer_service_company_weixin_url,
+			//                         });
+			//                     }
+			//                 });
+			//                 // #endif
+			
+			//                 // #ifdef MP-WEIXIN
+			//                 // 微信小程序打开企业微信客服
+			//                 uni.openCustomerServiceChat({
+			//                     extInfo: {url: this.common_app_customer_service_company_weixin_url},
+			//                     corpId: this.common_app_customer_service_company_weixin_corpid,
+			//                     showMessageCard: this.propCard,
+			//                     sendMessageTitle: this.propTitle,
+			//                     sendMessagePath: this.propPath,
+			//                     sendMessageImg: this.propImg,
+			//                 });
+			//                 // #endif
+			//             } else {
+			//                 // 电话客服
+			//                 this.call_event();
+			//             }
+			//         }
+			//     }
+			// },
+			// 客服事件
+			chat_event() {
+			    // 企业微信客服
+			    if((this.common_app_customer_service_company_weixin_corpid || null) != null && (this.common_app_customer_service_company_weixin_url || null) != null) {
+			        // #ifdef APP
+			        // app打开企业微信客服
+			        plus.share.getServices(res => {
+			            var wechat = res.find(i => i.id === 'weixin')
+			            if(wechat) {
+			                wechat.openCustomerServiceChat({
+			                    corpid: this.common_app_customer_service_company_weixin_corpid,
+			                    url: this.common_app_customer_service_company_weixin_url,
+			                });
+			            }
+			        });
+			        // #endif
+			    			
+			        // #ifdef MP-WEIXIN
+			        // 微信小程序打开企业微信客服
+			        uni.openCustomerServiceChat({
+			            extInfo: {url: this.common_app_customer_service_company_weixin_url},
+			            corpId: this.common_app_customer_service_company_weixin_corpid,
+			            showMessageCard: this.propCard,
+			            sendMessageTitle: this.propTitle,
+			            sendMessagePath: this.propPath,
+			            sendMessageImg: this.propImg,
+			        });
+			        // #endif
+			    } else {
+			        // 电话客服
+			        this.call_event();
+			    }
+			},
         },
     };
 </script>
