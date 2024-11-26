@@ -184,7 +184,7 @@
                                     this.setData({
                                         is_auto_import_system_address_choose: 1,
                                     });
-                                    this.choose_system_address_event();
+                                    // this.choose_system_address_event();
                                 }
                             }
                         } else {

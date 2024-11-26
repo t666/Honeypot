@@ -4,7 +4,7 @@
             <view class="agreement-content border-radius-main bg-white" v-if="is_show_privacy">
                 <view class="tc">
 					<!-- // TODO temp  logo,是原先的，要替换 -->
-                    <!-- <image class="logo circle auto dis-block margin-bottom-lg br" :src="logo" mode="widthFix"></image> -->
+                    <image class="logo circle auto dis-block margin-bottom-lg br" :src="logo" mode="widthFix"></image>
                     <view class="cr-base fw-b text-size-lg">{{ title }}{{$t('common.warm_tips')}}</view>
                 </view>
                 <view class="margin-top-lg text-size-sm cr-base content-desc">
@@ -116,7 +116,7 @@
         width: calc(100% - 160rpx);
     }
     .agreement-content .logo {
-        width: 160rpx;
+        width: 210rpx;
         height: 160rpx;
     }
     .agreement-content .content-desc {
