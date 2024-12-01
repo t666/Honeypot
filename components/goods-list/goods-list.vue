@@ -92,6 +92,10 @@
                                         </block>
                                         <block v-else>
                                             <block v-if="(item.is_error || 0) == 0 && is_show_cart">
+												<!-- 分享 -->
+												<view class="goods-share tc cp fr"  :data-index="index" @tap.stop="popup_share_event">
+												    <image :src="common_static_url + 'share-icon.png'" mode="scaleToFill" class="dis-block auto"></image>
+												</view>
                                                 <view v-if="propOpenCart" class="bg-white pr" :data-index="index" @tap.stop="goods_cart_event">
                                                     <iconfont name="icon-cart-inc" size="40rpx" :color="theme_color"></iconfont>
                                                     <view class="cart-badge-icon pa">
@@ -168,7 +172,8 @@
                 </view>
             </view>
         </view>
-
+		<!-- 分享弹窗 -->
+        <component-share-popup ref="share"></component-share-popup>
         <!-- 商品购买 -->
         <component-goods-buy v-if="is_show_cart" ref="goods_buy" v-on:CartSuccessEvent="goods_cart_back_event"></component-goods-buy>
 
@@ -180,13 +185,17 @@
     const app = getApp();
     import componentBadge from '../../components/badge/badge';
     import componentGoodsBuy from '../../components/goods-buy/goods-buy';
+	import componentSharePopup from '@/components/share-popup/share-popup';
     import componentCartParaCurve from '../../components/cart-para-curve/cart-para-curve';
+	var common_static_url = app.globalData.get_static_url('common');
     export default {
         data() {
             return {
                 theme_view: app.globalData.get_theme_value_view(),
+				common_static_url: common_static_url,
                 data: null,
                 is_show_cart: false,
+				share_info:{},
                 theme_color: app.globalData.get_theme_color(),
                 grid_btn_config: {
                     bg_color: '#D8D8D8',
@@ -202,6 +211,7 @@
         components: {
             componentBadge,
             componentGoodsBuy,
+			componentSharePopup,
             componentCartParaCurve,
         },
         props: {
@@ -313,8 +323,40 @@
                 is_show_cart: is_show_cart,
                 grid_btn_config: Object.assign({}, this.grid_btn_config, this.propGridBtnConfig),
             });
+			
         },
         methods: {
+			// 分享开启弹层
+			popup_share_event(e) {
+				var index = e.currentTarget.dataset.index || 0;
+				var goods = this.propData.goods_list[index];
+				var share_info =  {
+				        title: goods.seo_title || goods.title,
+				        kds: goods.seo_keywords || goods.simple_desc,
+				        desc: goods.seo_desc || goods.simple_desc,
+				        path: '/pages/index/index',
+				        query: 'id=' + goods.id,
+				        img: goods.images,
+				        video: goods.video,
+				    }
+					console.log(share_info)
+				// 分享配置
+				this.setData({
+				    // 基础自定义分享
+				    share_info,
+				});
+				// 分享菜单处理
+				app.globalData.page_share_handle(share_info);
+			    if ((this.$refs.share || null) != null) {
+			        this.$refs.share.init({
+			            status: true,
+			            is_goods_poster: 0,
+			            goods_id: goods.id,
+			            share_info: share_info
+			        });
+			    }
+				
+			},
             // 加入购物车
             goods_cart_event(e) {
                 if ((this.$refs.goods_buy || null) != null) {
@@ -407,4 +449,6 @@
         },
     };
 </script>
-<style></style>
+<style>
+    @import './goods-list.css';
+</style>
