@@ -785,7 +785,6 @@
         onLoad(params) {
             // 调用公共事件方法
             app.globalData.page_event_onload_handle(params);
-			console.log("params = " + JSON.stringify(params, null, 2));
             // 设置参数
             params = app.globalData.launch_params_handle(params);
             this.setData({
@@ -888,7 +887,6 @@
             // 获取数据
             init() {
                 // 缓存数据
-				console.log("goods = " + JSON.stringify(this.goods, null, 2));
                 if((this.goods || null) == null) {
                     var goods = app.globalData.goods_data_cache_handle(this.params.id);
                     if(goods != null) {
@@ -909,11 +907,9 @@
                         uni.stopPullDownRefresh();
                         if (res.data.code == 0) {
                             var data = res.data.data;
-							console.log("data = " + JSON.stringify(data, null, 2));
 							// TODO temp  返回值 原 data:{good:{}}, 现 data:{}
                             var goods = data.goods;
 							// var goods = res.data.data;
-							console.log("goods = " + JSON.stringify(goods, null, 2));
 
                             // 商品数据
                             this.init_result_data_handle(goods);
@@ -992,6 +988,7 @@
                                     video: goods.video,
                                 },
                             });
+							uni.setStorageSync('share_data', this.share_info);
 
                             // 购买记录提示
                             this.plugins_salerecords_tips_handle();
@@ -1023,10 +1020,8 @@
                 // 价格字段
                 var price_text_arr = [this.$t('goods-detail.goods-detail.bogx42'), this.$t('goods-category.goods-category.g2u3lf'), this.$t('goods-detail.goods-detail.3kdgjl')];
                 // 相册处理
-				console.log("goods = " + JSON.stringify(goods, null, 2));
 				
                 var photo = goods.photo || [];
-				console.log("photo = " + JSON.stringify(photo, null, 2));
                 if(photo.length == 0 && (goods.images || null) != null) {
                     photo.push({images: goods.images});
                 }

@@ -19,7 +19,7 @@ export default {
     // 分享给好友
     onShareAppMessage() {
         var app = getApp();
-        var share = app.globalData.share_content_handle(this.share_info || {});
+        var share = app.globalData.share_content_handle(uni.getStorageSync('share_data') || {});
         var data = {
             title: share.title,
             desc: share.desc,
@@ -34,7 +34,7 @@ export default {
     // 分享朋友圈
     onShareTimeline() {
         var app = getApp();
-        var share = app.globalData.share_content_handle(this.share_info || {});
+        var share = app.globalData.share_content_handle(uni.getStorageSync('share_data') || {});
         var data = {
             title: share.title,
             query: ((share.query || null) != null && share.query.substr(0, 1) == '?') ? share.query.slice(1) : share.query

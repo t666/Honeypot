@@ -1403,7 +1403,6 @@
                     app.globalData.showToast(this.$t('login.login.x0nxxf'));
                     return false;
                 }
-				console.log("url = "+ url);
                 // 打开 webview
                 app.globalData.open_web_view(url);
             },

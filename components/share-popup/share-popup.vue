@@ -111,7 +111,7 @@
                     summary: config.summary || null,
                     share_info: config.share_info || {},
                 });
-
+				uni.setStorageSync('share_data', config.share_info);
                 // 用户头像和昵称设置提示
                 if ((this.$refs.user_base || null) != null) {
                     this.$refs.user_base.init('share');

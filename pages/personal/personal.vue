@@ -130,7 +130,6 @@
                                 gender_list: res.data.data.gender_list || [],
                             });
 							this.user_data['birthday'] = this.user_data['birthday_text'];
-							console.log("user_data = " + JSON.stringify(this.user_data, null, 2));
                         } else {
                             this.setData({
                                 data_list_loding_status: 0,

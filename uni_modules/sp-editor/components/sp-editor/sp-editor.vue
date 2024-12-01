@@ -121,7 +121,6 @@
             format(e) {
                 let { name, value } = e.target.dataset;
                 if (!name) return;
-                // console.log('==== name :', name);
                 switch (name) {
                     case 'color':
                     case 'background-color':
@@ -152,7 +151,6 @@
             },
             onStatusChange(e) {
                 this.formats = e.detail;
-                // console.log('==== e :', e, this.textColor)
             },
             insertImage() {
                 // #ifdef APP-PLUS || H5

@@ -696,7 +696,6 @@
                                     uni.hideLoading();
                                     if (res.data.code == 0) {
                                         var data = res.data.data;
-										console.log("appminiuserauth data = " + JSON.stringify(data, null, 2));
                                         var client_type = this.application_client_type();
                                         if ((data.is_user_exist || 0) == 1 || client_type == 'weixin') {
 										// if (data.is_user_exist  == 1 ) {
@@ -1950,7 +1949,7 @@
                 // #ifdef H5 || APP
                 // 是有效的url地址则通过#号分割处理参数
                 if(this.is_url(result['url'])) {
-                    result['url'] = this.page_url_protocol(result.url.split('#')[0] + '#' + (result.path.substr(0, 1) == '/' ? '' : '/') + result.path + result.query);
+                    result['url'] = this.page_url_protocol(result.url.split('#')[0] + '#' + (result.path.substr(0, 1) == '/' ? '' : '/') + resuAlt.path + result.query);
                 }
                 // #endif
                 return result;

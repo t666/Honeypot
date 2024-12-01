@@ -252,7 +252,8 @@
                     </view>
                 </view>
             </view>
-
+			<!-- 商品购买 -->
+			<component-goods-buy ref="goods_buy" :propParams="params" :propCurrencySymbol="currency_symbol" v-on:BackSuccessEvent="goods_buy_back_success_event" v-on:CartSuccessEvent="goods_cart_back_event" v-on:SpecChoiceEvent="goods_spec_back_event"></component-goods-buy>
             <!-- 提示信息 -->
             <block v-if="load_status == 0">
                 <component-no-data :propStatus="data_list_loding_status" :propMsg="data_list_loding_msg" propPage="home" :propIsHeader="true"></component-no-data>
@@ -288,6 +289,7 @@
     import componentSearch from '@/components/search/search';
     import componentQuickNav from '@/components/quick-nav/quick-nav';
     import componentIconNav from '@/components/icon-nav/icon-nav';
+	import componentGoodsBuy from '@/components/goods-buy/goods-buy';
     import componentBanner from '@/components/slider/slider';
     import componentCountdown from '@/components/countdown/countdown';
     import componentLayout from '@/components/layout/layout';
@@ -336,6 +338,9 @@
                 random_value: 0,
                 // 基础配置
                 common_shop_notice: null,
+                params: null,
+				// 基础配置
+				currency_symbol: app.globalData.currency_symbol(),
                 home_index_floor_data_type: 0,
                 common_app_is_enable_search: 0,
                 common_app_is_header_nav_fixed: 0,
@@ -362,6 +367,24 @@
                 is_single_page: app.globalData.is_current_single_page() || 0,
                 // 用户位置信息
                 user_location: {},
+                buy_button: {
+					"data": [
+						{
+							"color": "main",
+							"name": "加入购物车",
+							"icon": "am-icon-opencart",
+							"type": "cart",
+							"title": "",
+							"value": "",
+							"class": ""
+						}
+					],
+					"count": 1,
+					"error": "",
+					"is_buy": 1,
+					"is_cart": 1,
+					"is_show": 1
+				},
                 // 轮播滚动时，背景色替换
                 slider_bg: null,
                 // 插件顺序列表
@@ -411,6 +434,7 @@
             componentActivityList,
             componentBlogList,
             componentRealstoreList,
+			componentGoodsBuy,
             componentShopList,
             componentGoodsList,
             componentUserBase,
@@ -423,6 +447,25 @@
         onLoad(params) {
             // 调用公共事件方法
             app.globalData.page_event_onload_handle(params);
+			if(params&&params.id){
+				uni.request({
+					url: app.globalData.get_request_url('p/getProduct'),
+				    method: 'GET',
+				    data: params,
+				    dataType: 'json',
+				    success: (res) => {
+				        if (res.data.code == 0) {
+				            var data = res.data.data;
+				            var goods = data.goods;
+							if ((this.$refs.goods_buy || null) != null) {
+							    this.$refs.goods_buy.init(goods, {...{buy_event_type: 'cart', buy_button: this.buy_button, is_init: 0}, ...params});
+							}
+						}
+				    },
+				});
+				
+			}
+			
         },
 
         onShow() {
@@ -476,6 +519,16 @@
         },
 
         methods: {
+			// 规格选择回调
+			goods_spec_back_event(e) {
+			},
+			// 加入购物车成功回调
+			goods_cart_back_event(e) {
+				this.init();
+			},
+			// 数量和规格详情回调成功
+			goods_buy_back_success_event(e) {
+			},
             // 初始化配置
             init_config(status) {
                 if ((status || false) == true) {

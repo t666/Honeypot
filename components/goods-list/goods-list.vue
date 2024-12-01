@@ -195,7 +195,6 @@
 				common_static_url: common_static_url,
                 data: null,
                 is_show_cart: false,
-				share_info:{},
                 theme_color: app.globalData.get_theme_color(),
                 grid_btn_config: {
                     bg_color: '#D8D8D8',
@@ -339,12 +338,7 @@
 				        img: goods.images,
 				        video: goods.video,
 				    }
-					console.log(share_info)
-				// 分享配置
-				this.setData({
-				    // 基础自定义分享
-				    share_info,
-				});
+				
 				// 分享菜单处理
 				app.globalData.page_share_handle(share_info);
 			    if ((this.$refs.share || null) != null) {
