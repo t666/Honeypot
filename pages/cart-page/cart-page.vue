@@ -4,7 +4,7 @@
         <component-cart ref="cart" propSourceType="page"></component-cart>
 
         <!-- 快捷导航 -->
-        <component-quick-nav :propIsBar="true"></component-quick-nav>
+        <!-- <component-quick-nav :propIsBar="true"></component-quick-nav> -->
     </view>
 </template>
 <script>

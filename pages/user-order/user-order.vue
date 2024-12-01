@@ -23,7 +23,8 @@
                                 <image v-if="(item.warehouse_icon || null) != null" class="warehouse-group-icon va-m margin-right-sm" :src="item.warehouse_icon" mode="aspectFit"></image>
                                 <text class="cr-base va-m">{{ item.warehouse_name }}</text>
                             </view> -->
-                            <text class="fr cr-red">{{ item.status_name }}<text v-if="(item.is_under_line_text || null) != null">（{{ item.is_under_line_text }}）</text></text>
+                            <text class="fr cr-red"  v-if="item.status_name != $t('order.order.15lr5l')">{{ item.status_name }}<text v-if="(item.is_under_line_text || null) != null">（{{ item.is_under_line_text }}）</text></text>
+							<text class="fr cr-green" v-if="item.status_name == $t('order.order.15lr5l')">{{ item.status_name }}<text v-if="(item.is_under_line_text || null) != null">（{{ item.is_under_line_text }}）</text></text>
                         </view>
                         <view v-for="(detail, di) in item.items" :key="di" class="br-b-dashed oh padding-vertical-main">
                             <view :data-value="'/pages/user-order-detail/user-order-detail?id=' + item.id" @tap="url_event">

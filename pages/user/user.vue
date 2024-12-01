@@ -163,7 +163,7 @@
         <component-online-service :propIsNav="true" :propIsBar="true"></component-online-service>
 
         <!-- 快捷导航 -->
-        <component-quick-nav :propIsNav="true" :propIsBar="true"></component-quick-nav>
+        <!-- <component-quick-nav :propIsNav="true" :propIsBar="true"></component-quick-nav> -->
 
         <!-- 用户基础 -->
         <component-user-base ref="user_base"></component-user-base>

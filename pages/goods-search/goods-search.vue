@@ -161,7 +161,7 @@
         </component-popup>
 
         <!-- 快捷导航 -->
-        <component-quick-nav></component-quick-nav>
+        <!-- <component-quick-nav></component-quick-nav> -->
     </view>
 </template>
 <script>
